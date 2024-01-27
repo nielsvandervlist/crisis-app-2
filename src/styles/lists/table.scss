@@ -1,0 +1,28 @@
+.table-overview {
+    @apply shadow-gray-100 shadow-md;
+    border-radius: 6px;
+
+    &__heading {
+        @apply items-center;
+        border-bottom: 1px solid;
+        @apply border-gray-100;
+    }
+
+    table {
+
+        tr {
+            border-bottom: 1px solid;
+            @apply border-gray-100;
+
+            &:last-child {
+                border: 0;
+            }
+        }
+
+        thead {
+            th {
+                @apply bg-gray-100;
+            }
+        }
+    }
+}

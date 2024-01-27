@@ -1,0 +1,63 @@
+.sidebar {
+    @apply
+    bg-white
+    shadow-gray-100
+    shadow-md;
+    padding: 30px 15px;
+    min-height: 100vh;
+    height: 100%;
+    width: 250px;
+
+    &__logo, &__main {
+        margin-bottom: 30px;
+    }
+
+    nav {
+        ul{
+            li{
+                margin-bottom: 7px;
+                a{
+                    display: block;
+                    padding: 10px 15px;
+                    @apply text-gray-300;
+                    z-index: 1;
+                    position: relative;
+                    svg{
+                        margin-right: 15px;
+                    }
+                }
+
+                &.active {
+                    position: relative;
+                    &:before {
+                        left: 0;
+                        top: 0;
+                        right:0;
+                        bottom: 0;
+                        border-radius: 5px;
+                        background: rgba(105,108,255,0.25);
+                        content: '';
+                        position: absolute;
+                        z-index: 0;
+                    }
+
+                    a{
+                        @apply text-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.notifications {
+    @apply w-6 h-6 rounded-full inline-block bg-danger text-white ml-2 relative;
+    top: 7px;
+    span {
+        font-weight: 800;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

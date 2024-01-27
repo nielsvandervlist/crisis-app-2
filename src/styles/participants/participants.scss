@@ -1,0 +1,14 @@
+.participants {
+    &__block {
+        border: 3px solid white;
+        margin-right: 10px;
+
+        figure {
+            margin-bottom: 10px;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}

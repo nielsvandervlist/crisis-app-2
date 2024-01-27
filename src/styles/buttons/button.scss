@@ -1,0 +1,74 @@
+.btn{
+    border-radius: 6px;
+    background: #696CFF;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+
+    &--primary {
+        @apply bg-primary;
+        box-shadow: 0 1px 3px 0 #696cff;
+    }
+
+    &--warning {
+        @apply bg-warning;
+        box-shadow: 0 1px 3px 0 #683e19;
+    }
+
+    &--success {
+        @apply bg-success;
+        box-shadow: 0 1px 3px 0 #528d32;
+    }
+
+    &--error {
+        @apply bg-danger;
+    }
+
+    &--form-error {
+        @apply bg-white text-xs;
+        border: 2px solid #FF3E1D;
+        color: #FF3E1D;
+    }
+
+    &--label {
+        padding: 5px 10px;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    &--label-small {
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        @apply bg-gray-100 text-gray-300;
+    }
+
+    &--soft {
+        @apply bg-white;
+        border: 2px solid #aab8c2;
+        color: #aab8c2;
+    }
+
+    &--round {
+        width: 30px;
+        height: 30px;
+        padding: 4px 0 0;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 900;
+        border-radius: 50%;
+        text-transform: uppercase;
+    }
+
+    &--icon {
+        font-size: 14px;
+        min-height: 30px;
+        min-width: 30px;
+        width: 32px;
+        display: block;
+    }
+}

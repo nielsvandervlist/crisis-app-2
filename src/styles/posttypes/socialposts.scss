@@ -1,0 +1,17 @@
+.social-posts {
+    @apply col-span-12 grid grid-cols-12 gap-4;
+    grid-template-columns: repeat(auto-fill, calc(33% - 0.5rem));
+    //grid-auto-rows: minmax(min-content, max-content);
+
+    .facebook {
+        grid-row: span 3 / span 4;
+    }
+
+    .twitter {
+        grid-row: span 3 / span 3;
+    }
+
+    .youtube {
+        grid-row: span 3 / span 3;
+    }
+}

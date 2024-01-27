@@ -1,0 +1,21 @@
+.card {
+    border-radius: 6px;
+    @apply p-8 bg-white shadow-gray-100 shadow-md;
+
+    &--social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        svg {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &--np {
+        @apply p-0;
+        overflow: hidden;
+    }
+}

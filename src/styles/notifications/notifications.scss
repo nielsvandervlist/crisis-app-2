@@ -1,0 +1,45 @@
+.notifications-list {
+    width: 100%;
+
+    td {
+        padding: 10px 20px;
+    }
+
+    th {
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    &__head {
+        border-bottom: 1px solid rgba(105,108,255,0.15);
+    }
+
+    &__item {
+        border-bottom: 1px solid rgba(105,108,255,0.15);
+        padding: 10px 0;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &--read {
+            opacity: 0.6;
+        }
+    }
+
+    &__description {
+        th {
+            @apply bg-gray-100;
+        }
+    }
+
+    &__header {
+        span{
+            font-size: 12px;
+        }
+    }
+}

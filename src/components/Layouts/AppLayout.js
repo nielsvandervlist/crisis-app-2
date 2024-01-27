@@ -1,16 +1,9 @@
-'use client'
-
-import { useAuth } from '@/hooks/auth'
 import Navigation from '@/components/Layouts/Navigation'
-import Loading from '@/app/(app)/Loading'
+import useAuth from '@/hooks/auth'
 import Sidebar from '@/components/Layouts/Sidebar/Sidebar'
 
-const AppLayout = ({ children, header }) => {
+const AppLayout = ({ header, children }) => {
     const { user } = useAuth({ middleware: 'auth' })
-
-    if (!user) {
-        return <Loading />
-    }
 
     return (
         <div className="min-h-screen flex">

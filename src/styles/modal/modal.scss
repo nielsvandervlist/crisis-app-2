@@ -1,0 +1,31 @@
+.modal {
+    &__bg {
+        background: #696CFF;
+        opacity: 0.5;
+        position: absolute;
+    }
+
+    &__wrapper {
+        max-width: 500px;
+        transform: translate(-50%, -50%);
+    }
+
+    &__block {
+        @apply p-0 z-20 shadow-gray-200;
+    }
+
+    &__header {
+        @apply p-4;
+        border-bottom: 1px solid #F2F3F4;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__content {
+        @apply p-4 border-gray-100;
+    }
+
+}

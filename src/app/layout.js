@@ -1,4 +1,5 @@
-import '@/app/global.css'
+import 'tailwindcss/tailwind.css'
+import '@/styles/style.scss'
 
 export const metadata = {
     title: 'Laravel',

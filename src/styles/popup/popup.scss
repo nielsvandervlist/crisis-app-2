@@ -1,0 +1,26 @@
+.popup {
+    position: fixed;
+    right:50px;
+    z-index:999;
+    border-radius: 6px;
+    @apply p-4 bg-white shadow-gray-100 shadow-md;
+    min-width: 300px;
+    opacity: 0;
+    bottom: -200px;
+    transition: 0.3s all ease-in-out;
+
+    &--show {
+        bottom: 50px;
+        opacity:1;
+    }
+
+    &__header {
+        @apply flex items-center;
+        border-bottom: 1px solid #aab8c2;
+        padding-bottom: 10px;
+    }
+
+    &__body {
+        padding-top: 10px;
+    }
+}

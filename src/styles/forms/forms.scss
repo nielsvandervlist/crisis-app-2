@@ -1,0 +1,75 @@
+input[type='text'], input[type='date'], input[type='password'], input[type='time'], input[type='number'], input[type='datetime-local'], select, textarea {
+    border: 1px solid #696cff;
+    border-radius: 6px;
+    padding: 16px 14px;
+    font-size: 15px;
+    width: 100%;
+}
+
+select.small {
+    padding: 10px 8px;
+}
+
+input[type='checkbox']{
+    display: none;
+    & + label {
+        padding-left: 30px;
+        position: relative;
+        &:before {
+            content: '';
+            border-radius: 6px;
+            border: 1px solid #696cff;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 15px;
+        }
+    }
+
+    &:checked {
+        & + label {
+            &:after{
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                border-radius: 3px;
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: #71DD37;
+            }
+        }
+    }
+}
+
+input::placeholder {
+    @apply text-gray-200;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    color: #566A7F;
+    letter-spacing: 0;
+    line-height: 21px;
+    margin-bottom: 12px;
+}
+
+.form {
+    &__block {
+        @apply mb-4;
+    }
+}
+
+.filter {
+    max-width: 300px;
+    @apply relative;
+    span {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+}

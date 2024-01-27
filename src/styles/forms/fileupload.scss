@@ -1,0 +1,54 @@
+.file-upload {
+    @apply flex mb-8 relative flex-col flex-1 items-start;
+    max-width: 500px;
+    &__input {
+        margin-right: 20px;
+        label {
+            & + input {
+                display: none;
+            }
+        }
+    }
+    &__preview {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        max-height: 300px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            background:rgba(3,3,2,0.67);
+            @apply inset-0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__file-preview {
+        ul {
+            border-radius: 5px;
+            border: 1px solid #696cff;
+            li {
+                padding: 10px 20px;
+                border-bottom: 1px solid #696CFF;
+
+                &:last-child {
+                    border-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &--preview {
+        .file-upload__input {
+            position: absolute;
+            z-index:1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

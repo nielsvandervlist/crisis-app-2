@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Chat/MessageBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Chat/RoomWrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Companies/Form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Crisis/ControlActiveCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Crisis/CreateCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Crisis/RunCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Crisis/StartCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dropdown/Dropdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/DragDrop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/FileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/MultipleFileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/TimelineForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePosts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Info/NewCrisis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Info/WelcomeText.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/CallToAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Container.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Cta.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Faqs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Hero.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Landingpage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/NavLink.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Pricing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/PrimaryFeatures.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/SecondaryFeatures.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Landingpage/Testimonials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/AppLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/GuestLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Navigation/Hamburger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Navigation/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Navigation/Menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/Sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarMain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Participants/GetParticipants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Participants/ParticipantForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Popup/Popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Facebook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Instagram.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Item.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Linkedin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/PinterestLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/PostWrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Twitter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostTypes/Youtube.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Posts/Form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Posts/YoutubeForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Rapports/Info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Rapports/RapportForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Rounds/FileDrop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/EditBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/Line.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/ParticipantLine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/Timeline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsFooter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/buttons/button.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/chat/chat.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/chat/messages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/containers/card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/containers/pinterestlayout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/forms/fileupload.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/forms/forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/lists/table.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/main/typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/modal/modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/navigation/sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/notifications/notifications.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/participants/participants.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/popup/popup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/posttypes/facebook.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/posttypes/socialposts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/posttypes/twitter.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/posttypes/youtube.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/timeline/timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/Navigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Lists/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1 (1)" />
+  <component name="ProjectId" id="2bRwxwaTph5OcGLgVpZcgO5mReW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "16.0.0",
+    "javascript.nodejs.core.library.typings.version": "16.0.0",
+    "last_opened_file_path": "/Users/niels/bespokeweb/crisis-app-2/src/components",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components/Lists" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Forms" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="" />
+      <created>1706191448706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706191448706</updated>
+      <workItem from="1706191450339" duration="16038000" />
+      <workItem from="1706349052619" duration="1318000" />
+      <workItem from="1706350410263" duration="462000" />
+      <workItem from="1706351293115" duration="686000" />
+      <workItem from="1706352038435" duration="15246000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
