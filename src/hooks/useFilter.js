@@ -15,7 +15,7 @@ const Filter = ({value, setValue, className}) => <div className={'filter'}>
 export function useFilter(items){
 
     const [value, setValue] = useState('')
-    const [sortedItems, setSortedItems] = useState()
+    const [sortedItems, setSortedItems] = useState([])
 
     function filterValues(arr, searchKeys) {
 
@@ -47,10 +47,11 @@ export function useFilter(items){
     }
 
     useEffect(() => {
-        if(value !== ''){
+        if(items && value !== ''){
+            console.log("Items:", items);
             setSortedItems(filterValues(items, {name: value, title: value}))
         }
-    }, [value])
+    }, [value, items])
 
     return [
         <Filter value={value} setValue={setValue}/>,

@@ -2,13 +2,14 @@ import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import * as helpers from '@/helpers'
 import {useFilter} from '@/hooks/useFilter'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {del} from '@/hooks/methods'
 import {faPenToSquare, faTrash} from '@fortawesome/free-solid-svg-icons'
 
 export default function List({items, setItems, type}) {
 
     const [Filter, sortedItems] = useFilter(items.data)
+    const [errors, setErrors] = useState()
 
     useEffect(() => {
         if(sortedItems && sortedItems.length > 0){
@@ -17,7 +18,7 @@ export default function List({items, setItems, type}) {
     }, [sortedItems])
 
     function submitDelete(id) {
-        del(`/api/${type}`, id).then(res => removeItem(id))
+        del(`/api/${type}/${id}`, setErrors).then(res => removeItem(id))
     }
 
     function removeItem(id) {
