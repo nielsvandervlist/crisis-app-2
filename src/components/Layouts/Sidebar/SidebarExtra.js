@@ -1,29 +1,21 @@
 'use client'
 import Link from 'next/link'
-// import Pusher from 'pusher-js'
+import Pusher from 'pusher-js'
 import {useAuth} from '@/hooks/auth'
 import {useEffect, useState} from 'react'
-// import Echo from 'laravel-echo'
+import Echo from 'laravel-echo'
 import axios from '@/lib/axios'
 import Popup from '@/components/Popup/Popup'
-// import {Fetcher} from 'ra-fetch'
+import useGetData from '@/hooks/useGetData'
 
 function SidebarExtra() {
 
     const {user} = useAuth({middleware: 'auth'})
-    const [notifications, setNotifications] = useState([])
     const [message, setMessage] = useState()
 
+    const [notifications, setNotifications] = useGetData('/api/notifications', {read: 0})
+
     useEffect(() => {
-        if (user?.id) {
-
-            Fetcher.api('backend').index('notifications', {
-                read: 0
-            })
-                .then((res) => {
-                    setNotifications(res.data)
-                })
-
             const echo = new Echo({
                 authEndpoint: '/broadcasting/auth',
                 broadcaster: 'pusher',
@@ -65,8 +57,7 @@ function SidebarExtra() {
                     setNotifications((oldNotifications) => [...oldNotifications, data])
                     setMessage(data)
                 })
-        }
-    }, [])
+        }, [])
 
     return <div className={'sidebar__extra'}>
         <nav>

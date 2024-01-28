@@ -4,6 +4,7 @@ import {Fetcher} from 'ra-fetch'
 import * as helpers from '@/helpers'
 import {useFilter} from '@/hooks/useFilter'
 import {useEffect} from 'react'
+import {faPenToSquare} from '@fortawesome/free-solid-svg-icons'
 
 export default function DownloadList({items, setItems, type}) {
 
@@ -73,7 +74,7 @@ export default function DownloadList({items, setItems, type}) {
                                     </span>
                                 </a>
                                 <Link href={`/${type}/${item.id}`} className={'btn btn--primary btn--label btn--icon mr-4'}>
-                                        <FontAwesomeIcon icon="pen-to-square"/>
+                                        <FontAwesomeIcon icon={faPenToSquare}/>
                                 </Link>
                                 <div
                                     onClick={() => submitDelete(item.id)}

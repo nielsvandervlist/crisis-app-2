@@ -12,7 +12,7 @@ function Sidebar({user}) {
             <h1><b className={''}>cata</b></h1>
         </div>
         <SidebarMain user={user}/>
-        {/*<SidebarExtra />*/}
+        <SidebarExtra />
     </div>
 }
 

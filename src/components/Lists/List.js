@@ -4,7 +4,7 @@ import * as helpers from '@/helpers'
 import {useFilter} from '@/hooks/useFilter'
 import {useEffect} from 'react'
 import {del} from '@/hooks/methods'
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
+import {faPenToSquare, faTrash} from '@fortawesome/free-solid-svg-icons'
 
 export default function List({items, setItems, type}) {
 
@@ -69,7 +69,7 @@ export default function List({items, setItems, type}) {
                                     className={'btn btn--primary btn--label btn--icon mr-4'}
                                     href={`/${type}/${item.id}`}
                                 >
-                                        <FontAwesomeIcon icon="pen-to-square"/>
+                                    <FontAwesomeIcon icon={faPenToSquare}/>
                                 </Link>
                                 <div
                                     onClick={() => submitDelete(item.id)}

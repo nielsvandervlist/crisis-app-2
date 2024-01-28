@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCircleDot, faFire, faEnvelope, faBuilding, faUser, faUsers, faClock, faPlus, faFile} from '@fortawesome/free-solid-svg-icons'
 import {useRouter, usePathname} from 'next/navigation'
 
 function SidebarMain({user}){
@@ -14,42 +15,42 @@ function SidebarMain({user}){
                 <ul>
                     <li className={pathname.includes("/dashboard")  ? "active" : ""}>
                         <Link href={'/dashboard'}>
-                            {/*<FontAwesomeIcon icon="circle-dot"/>Overview*/}
+                            <FontAwesomeIcon icon={faCircleDot}/>Overview
                         </Link>
                     </li>
                     <li className={pathname.includes("/crises")  ? "active" : ""}>
                         <Link href={'/crises'}>
-                            {/*<FontAwesomeIcon icon="fire"/>Crises*/}
+                            <FontAwesomeIcon icon={faFire}/>Crises
                         </Link>
                     </li>
                     <li className={pathname.includes('/posts') ? "active" : ""}>
                         <Link href={'/posts'}>
-                            {/*<FontAwesomeIcon icon="envelope"/>Posts*/}
+                            <FontAwesomeIcon icon={faEnvelope}/>Posts
                         </Link>
                     </li>
                     <li className={pathname.includes("/companies")  ? "active" : ""}>
                         <Link href={'/companies'}>
-                            {/*<FontAwesomeIcon icon="building"/>Companies*/}
+                            <FontAwesomeIcon icon={faBuilding}/>Companies
                         </Link>
                     </li>
                     <li className={pathname.includes("/participants")  ? "active" : ""}>
                         <Link href={'/participants'}>
-                            {/*<FontAwesomeIcon icon="user"/>Participants*/}
+                            <FontAwesomeIcon icon={faUser}/>Participants
                         </Link>
                     </li>
                     <li className={pathname.includes("/timelines")  ? "active" : ""}>
                         <Link href={'/timelines'}>
-                            {/*<FontAwesomeIcon icon="clock"/>Timelines*/}
+                            <FontAwesomeIcon icon={faClock}/>Timelines
                         </Link>
                     </li>
                     <li className={pathname.includes("/rapports")  ? "active" : ""}>
                         <Link href={'/rapports'}>
-                            {/*<FontAwesomeIcon icon="clock"/>Reports*/}
+                            <FontAwesomeIcon icon={faClock}/>Reports
                         </Link>
                     </li>
                     <li className={pathname.includes("/documents")  ? "active" : ""}>
                         <Link href={'/documents'}>
-                            {/*<FontAwesomeIcon icon="file"/>Documents*/}
+                            <FontAwesomeIcon icon={faFile}/>Documents
                         </Link>
                     </li>
                 </ul>
@@ -60,7 +61,7 @@ function SidebarMain({user}){
                     <ul>
                         <li>
                             <Link href={'/participant-dashboard'}>
-                                {/*<FontAwesomeIcon icon="circle-dot"/>Overview*/}
+                                <FontAwesomeIcon icon={faCircleDot}/>Overview
                             </Link>
                         </li>
                     </ul>
