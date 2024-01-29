@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react'
 import {useAuth} from '@/hooks/auth'
 import Link from 'next/link'
 import FileUpload from '@/components/FileUpload'
-import {store, put, update} from '@/hooks/methods'
 import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
 
@@ -10,10 +9,8 @@ function PostForm({requestType, id, post}) {
 
     const {user} = useAuth({middleware: 'auth'})
     const [postTypes] = useGetData('/api/post_types')
-    const [response, setResponse] = useState()
-    const [errors, setErrors] = useState()
 
-    const fieldsArray = ['title', 'description', 'post_type_id', 'online', 'thumbnail'];
+    const fieldsArray = ['title', 'description', 'post_type_id', 'online', 'thumbnail']
     const params = {
         'user_id': user?.id,
     }
@@ -24,20 +21,22 @@ function PostForm({requestType, id, post}) {
         setFormData,
         handleChange,
         handleFile,
-        handleSubmit
-    } = useHandle(fieldsArray, url, requestType, params, setResponse, setErrors);
+        handleSubmit,
+        response,
+        errors
+    } = useHandle(fieldsArray, url, requestType, params)
 
-    let { title, description, post_type_id, online, thumbnail } = formData;
+    let { title, description, post_type_id, online, thumbnail } = formData
 
     useEffect(() => {
         if (post && post.data) {
-            setFormData({...post.data});
+            setFormData({...post.data})
         }
-    }, [setFormData]);
+    }, [setFormData])
 
     const handleInputChange = (e) => {
-        handleChange(e);
-    };
+        handleChange(e)
+    }
 
     if(!postTypes){
         return <></>
@@ -121,7 +120,7 @@ function PostForm({requestType, id, post}) {
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Post created</div>}
-            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            {errors.length > 0 && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
             <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
         </div>
     </form>

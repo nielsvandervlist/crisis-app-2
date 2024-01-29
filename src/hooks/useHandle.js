@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import {store, update} from '@/hooks/methods'
 
-export const useHandle = (fieldsArray, url, type, params, setResponse, setErrors) => {
+export const useHandle = (fieldsArray, url, type, params) => {
+
+    const [response, setResponse] = useState()
+    const [errors, setErrors] = useState([])
+
     const initialFormData = {};
     // Initialize the form data
     fieldsArray.forEach(field => {
@@ -44,5 +48,5 @@ export const useHandle = (fieldsArray, url, type, params, setResponse, setErrors
         }
     }
 
-    return { formData, setFormData, handleChange, handleFile, handleSubmit };
+    return { formData, setFormData, handleChange, handleFile, handleSubmit, response, errors };
 };
