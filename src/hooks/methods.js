@@ -67,7 +67,11 @@ export async function update(url, props, setFormData, setErrors) {
     setErrors([])
 
     axios
-        .put(url, form(props))
+        .post(url, form({ ...props, _method: 'PUT' }), {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        })
         .then((res) => {
             setFormData(res)
         })

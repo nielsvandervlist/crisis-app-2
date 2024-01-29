@@ -1,5 +1,5 @@
 import Navigation from '@/components/Layouts/Navigation'
-import useAuth from '@/hooks/auth'
+import {useAuth} from '@/hooks/auth'
 import Sidebar from '@/components/Layouts/Sidebar/Sidebar'
 
 const AppLayout = ({ header, children }) => {

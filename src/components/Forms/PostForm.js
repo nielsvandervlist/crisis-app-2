@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {useAuth} from '@/hooks/auth'
 import Link from 'next/link'
 import FileUpload from '@/components/FileUpload'
-import {store, put} from '@/hooks/methods'
+import {store, put, update} from '@/hooks/methods'
 import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
 
@@ -14,9 +14,26 @@ function PostForm({requestType, id, post}) {
     const [errors, setErrors] = useState()
 
     const fieldsArray = ['title', 'description', 'post_type_id', 'online', 'thumbnail'];
-    const { formData, handleChange, handleFile } = useHandle(fieldsArray);
+    const params = {
+        'user_id': user?.id,
+    }
+    const url = requestType === 'post' ? '/api/posts' : `/api/posts/${id}`
 
-    const { title, description, post_type_id, online, thumbnail } = formData;
+    let {
+        formData,
+        setFormData,
+        handleChange,
+        handleFile,
+        handleSubmit
+    } = useHandle(fieldsArray, url, requestType, params, setResponse, setErrors);
+
+    let { title, description, post_type_id, online, thumbnail } = formData;
+
+    useEffect(() => {
+        if (post && post.data) {
+            setFormData({...post.data});
+        }
+    }, [setFormData]);
 
     const handleInputChange = (e) => {
         handleChange(e);
@@ -26,20 +43,8 @@ function PostForm({requestType, id, post}) {
         return <></>
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        const params = {
-            ...formData,
-            user_id: user?.id
-        }
-
-        if(requestType === 'post') {
-            void store('api/posts', params, setResponse, setErrors)
-        }
-        else {
-            void update(`api/posts/${id}`, ...formData, setResponse, setErrors)
-        }
+    function submit(e) {
+        handleSubmit(e)
     }
 
     if (!user) {
@@ -71,7 +76,7 @@ function PostForm({requestType, id, post}) {
                 <label>Title</label>
                 <input
                     type={'text'}
-                    value={title}
+                    value={formData.title}
                     placeholder={'Title'}
                     onChange={handleInputChange}
                     id={'title'}
@@ -82,7 +87,7 @@ function PostForm({requestType, id, post}) {
                 <label>Description</label>
                 <input
                     type={'text'}
-                    value={description}
+                    value={formData.description}
                     placeholder={'Description'}
                     onChange={handleInputChange}
                     id={'description'}
@@ -90,7 +95,7 @@ function PostForm({requestType, id, post}) {
                 />
             </div>
             <FileUpload
-                file={thumbnail}
+                file={formData.thumbnail}
                 setFile={handleFile}
                 label={'Add image to post'}
                 name={'thumbnail'}
@@ -104,7 +109,7 @@ function PostForm({requestType, id, post}) {
                     <input
                         type={'checkbox'}
                         value={online}
-                        checked={!!online}
+                        checked={online}
                         placeholder={'Online'}
                         onChange={handleInputChange}
                         id={'online'}
@@ -116,8 +121,8 @@ function PostForm({requestType, id, post}) {
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Post created</div>}
-            {errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
+            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
         </div>
     </form>
 }

@@ -21,7 +21,6 @@ export function useFilter(items){
 
         return arr.filter(function(obj) {
             let match = true;
-
             // Check if the object has all the search keys
             for (let key in searchKeys) {
                 if (!obj.hasOwnProperty(key) || obj[key] !== searchKeys[key]) {

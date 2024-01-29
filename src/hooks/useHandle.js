@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import {store, update} from '@/hooks/methods'
 
-export const useHandle = (fieldsArray) => {
+export const useHandle = (fieldsArray, url, type, params, setResponse, setErrors) => {
     const initialFormData = {};
+    // Initialize the form data
     fieldsArray.forEach(field => {
         initialFormData[field] = '';
     });
@@ -25,10 +27,22 @@ export const useHandle = (fieldsArray) => {
         }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your handleSubmit logic here
-    };
 
-    return { formData, handleChange, handleFile, handleSubmit };
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const data = {
+            ...formData,
+            ...params
+        }
+
+        if(type === 'post') {
+            void store(url, data, setResponse, setErrors)
+        }
+        else {
+            void update(url, data, setResponse, setErrors)
+        }
+    }
+
+    return { formData, setFormData, handleChange, handleFile, handleSubmit };
 };

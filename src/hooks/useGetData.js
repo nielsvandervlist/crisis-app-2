@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 import { get } from './methods.js';
 
-function useGetData(url) {
+function useGetData(url, params) {
     const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
-            const controller = new AbortController();
-            const signal = controller.signal;
 
             try {
-                const result = await get(url, { signal });
+                const result = await get(url, params);
                 setData(result);
             } catch(error) {
                 if (error.name === 'AbortError') {
@@ -21,7 +19,7 @@ function useGetData(url) {
             }
 
             return () => {
-                controller.abort(); // Cancel the ongoing request when the component unmounts
+                // Cancel the request
             };
         };
 

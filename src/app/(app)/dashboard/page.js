@@ -15,7 +15,6 @@ export default function Page() {
 
     return (
         <div className={'col-span-12'}>
-            You're logged in!
             <List items={items} setItems={setItems} type={'posts'}/>
         </div>
     )
