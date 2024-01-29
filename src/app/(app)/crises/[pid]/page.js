@@ -1,5 +1,5 @@
+'use client'
 import {useParams} from 'next/navigation'
-import {useEffect} from 'react'
 import CrisisForm from '@/components/Forms/CrisisForm'
 import useGetData from '@/hooks/useGetData'
 
