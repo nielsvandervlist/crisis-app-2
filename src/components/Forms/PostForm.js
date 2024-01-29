@@ -34,16 +34,8 @@ function PostForm({requestType, id, post}) {
         }
     }, [setFormData])
 
-    const handleInputChange = (e) => {
-        handleChange(e)
-    }
-
     if(!postTypes){
         return <></>
-    }
-
-    function submit(e) {
-        handleSubmit(e)
     }
 
     if (!user) {
@@ -60,7 +52,7 @@ function PostForm({requestType, id, post}) {
                         value={formData.post_type_id}
                         name={'post_type_id'}
                         id={post_type_id}
-                        onChange={handleInputChange}
+                        onChange={handleChange}
                     >
                         <option>Select a option</option>
                         {
@@ -77,7 +69,7 @@ function PostForm({requestType, id, post}) {
                     type={'text'}
                     value={formData.title}
                     placeholder={'Title'}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     id={'title'}
                     name={'title'}
                 />
@@ -88,7 +80,7 @@ function PostForm({requestType, id, post}) {
                     type={'text'}
                     value={formData.description}
                     placeholder={'Description'}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                     id={'description'}
                     name={'description'}
                 />
@@ -110,7 +102,7 @@ function PostForm({requestType, id, post}) {
                         value={online}
                         checked={online}
                         placeholder={'Online'}
-                        onChange={handleInputChange}
+                        onChange={handleChange}
                         id={'online'}
                         name={'online'}
                     />
@@ -121,7 +113,7 @@ function PostForm({requestType, id, post}) {
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Post created</div>}
             {errors.length > 0 && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }

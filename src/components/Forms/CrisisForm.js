@@ -45,10 +45,6 @@ function CrisisForm({requestType, crisis, id, documents}) {
     //     }
     // }, [response])
 
-    function submit(e) {
-        handleSubmit(e)
-    }
-
     if(!companies){
         return <></>
     }
@@ -113,7 +109,7 @@ function CrisisForm({requestType, crisis, id, documents}) {
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Crisis created</div>}
             {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }
