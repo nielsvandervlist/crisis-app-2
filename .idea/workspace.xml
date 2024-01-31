@@ -5,34 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/Portrait_Placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/astro1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/bird.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/chat-dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/dash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/dashboard-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/dashboard-form.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layouts/AuthContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/crises/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/crises/[pid]/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/create/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/create/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/CrisisForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CrisisForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/MultipleFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/MultipleFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/PostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Participants/GetParticipants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Participants/GetParticipants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Participants/ParticipantForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Participants/ParticipantForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/methods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useHandle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useHandle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +76,7 @@
       <workItem from="1706350410263" duration="462000" />
       <workItem from="1706351293115" duration="686000" />
       <workItem from="1706352038435" duration="20548000" />
-      <workItem from="1706524348102" duration="23737000" />
+      <workItem from="1706524348102" duration="24788000" />
     </task>
     <servers />
   </component>

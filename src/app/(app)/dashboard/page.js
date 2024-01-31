@@ -7,15 +7,16 @@ import useGetData from '@/hooks/useGetData'
 
 export default function Page() {
 
-    const { items: items, isLoading, isError } = useGet('/api/posts');
+    const { data, setData, isLoading, isError } = useGet('/api/posts');
 
-    if(!items){
-        return <></>
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error: {isError.message}</div>;
+
+    console.log(data)
 
     return (
         <div className={'col-span-12'}>
-            <List items={items} setItems={setItems} type={'posts'}/>
+            {/*<List items={items} setItems={setItems} type={'posts'}/>*/}
         </div>
     )
 }

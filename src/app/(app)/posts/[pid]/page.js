@@ -2,11 +2,12 @@
 import { useParams } from 'next/navigation'
 import PostForm from '@/components/Forms/PostForm'
 import useGetData from '@/hooks/useGetData'
+import {useGet} from '@/hooks/methods'
 
 const Post = () => {
 
     const params = useParams()
-    const [post, setPost] = useGetData(`/api/posts/${params.pid}`, )
+    const { post, isLoading, isError } = useGet('/api/posts');
 
     if(!post){
         return <></>

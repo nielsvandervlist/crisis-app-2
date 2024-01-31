@@ -1,5 +1,6 @@
 import axios from '@/lib/axios'
 import useSWR from 'swr'
+import {useEffect, useState} from 'react'
 
 const createForm = (formData, params, key = null) => {
     for (let i in params) {
@@ -36,7 +37,7 @@ function form(params) {
 }
 
 export function useGet(url, params) {
-    const { data, error } = useSWR(url, () =>
+    const { data: initialData, error } = useSWR(url, () =>
         axios.get(url, { params })
             .then(res => res.data)
             .catch(error => {
@@ -45,12 +46,21 @@ export function useGet(url, params) {
             })
     );
 
+    const [data, setData] = useState(null); // Set initial data to null
+
+    // Update data state when initialData changes
+    useEffect(() => {
+        setData(initialData);
+    }, [initialData]);
+
     return {
         data,
+        setData,
         isLoading: !data && !error,
         isError: error
     };
 }
+
 
 const csrf = () => axios.get('/sanctum/csrf-cookie')
 
