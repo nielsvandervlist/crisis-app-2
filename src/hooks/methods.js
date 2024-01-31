@@ -1,4 +1,5 @@
 import axios from '@/lib/axios'
+import useSWR from 'swr'
 
 const createForm = (formData, params, key = null) => {
     for (let i in params) {
@@ -34,25 +35,32 @@ function form(params) {
     return createForm(formData, params);
 }
 
+export function useGet(url, params) {
+    const { data, error } = useSWR(url, () =>
+        axios.get(url, { params })
+            .then(res => res.data)
+            .catch(error => {
+                if (error.response.status !== 409) throw error;
+                // Handle specific error codes as needed
+            })
+    );
 
-export async function get(url, params) {
-    try {
-        let res = await axios.get(url, {params: params})
-        return res.data
-    } catch (error) {
-        return error
-    }
+    return {
+        data,
+        isLoading: !data && !error,
+        isError: error
+    };
 }
 
 const csrf = () => axios.get('/sanctum/csrf-cookie')
 
-export async function store(url, props, setFormData, setErrors) {
+export async function store(url, data, setResponse, setErrors) {
     await csrf()
 
     axios
-        .post(url, form(props))
+        .post(url, form(data))
         .then((res) => {
-            setFormData(res)
+            setResponse(res.data)
         })
         .catch(error => {
             if (error.response.status !== 422) throw error
@@ -61,19 +69,19 @@ export async function store(url, props, setFormData, setErrors) {
         })
 }
 
-export async function update(url, props, setFormData, setErrors) {
+export async function update(url, data, setResponse, setErrors) {
     await csrf()
 
     setErrors([])
 
     axios
-        .post(url, form({ ...props, _method: 'PUT' }), {
+        .post(url, form({ ...data, _method: 'PUT' }), {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
         })
         .then((res) => {
-            setFormData(res)
+            setResponse(res.data)
         })
         .catch(error => {
             if (error.response.status !== 422) throw error

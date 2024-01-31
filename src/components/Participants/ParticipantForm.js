@@ -1,53 +1,42 @@
-import useAuth from '@/hooks/auth'
 import {useEffect, useState} from 'react'
-import {Fetcher} from 'ra-fetch'
+import {useAuth} from '@/hooks/auth'
+import useGetData from '@/hooks/useGetData'
+import {useHandle} from '@/hooks/useHandle'
 
 function ParticipantForm({requestType, id, participant}){
     const {user} = useAuth({middleware: 'auth'})
-
-    const [name, setName] = useState(participant ? participant.data.name : '')
-    const [email, setEmail] = useState(participant ? participant.data.email : '')
-    const [companies, setCompanies] = useState()
+    const [companies, setCompanies] = useGetData('/api/companies')
     const [companyId, setCompanyId] = useState()
-    const [response, setResponse] = useState()
-    const [errors, setErrors] = useState()
+
+    const fieldsArray = ['name', 'email', 'company_id']
+    const url = requestType === 'post' ? '/api/participants' : `/api/participants/${id}`
+
+    //TODO set company id right
+    const params = {
+        user_id: user.id,
+        company_id: 1,
+    }
+
+    let {
+        formData,
+        setFormData,
+        handleChange,
+        handleFile,
+        handleSubmit,
+        response,
+        errors
+    } = useHandle(fieldsArray, url, requestType, params)
+
+    let { name, email, company_id } = formData
 
     useEffect(() => {
-        Fetcher.api('backend').index('companies')
-            .then((res) => {
-                setCompanies(res)
-            })
-    }, [])
+        if (participant && participant.data) {
+            setFormData({...participant.data})
+        }
+    }, [setFormData])
 
     if (!user || !companies) {
         return <></>
-    }
-
-    const params = {
-        name: name,
-        email: email,
-        user_id: user.id,
-        company_id: companyId,
-    }
-
-    if (id) {
-        params.id = id
-    }
-
-    function submit(e) {
-        e.preventDefault()
-
-        if (requestType === 'store') {
-            Fetcher.api('backend').store('participants', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
-        }
-
-        if (requestType === 'update') {
-            Fetcher.api('backend').update('participants', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
-        }
     }
 
     return <form className={'card col-span-12 form'}>
@@ -58,7 +47,7 @@ function ParticipantForm({requestType, id, participant}){
                     type={'text'}
                     value={name}
                     placeholder={'Name'}
-                    onChange={event => setName(event.target.value)}
+                    onChange={handleChange}
                     id={'name'}
                     name={'name'}
                 />
@@ -69,7 +58,7 @@ function ParticipantForm({requestType, id, participant}){
                     type={'text'}
                     value={email}
                     placeholder={'Email'}
-                    onChange={event => setEmail(event.target.value)}
+                    onChange={handleChange}
                     id={'email'}
                     name={'email'}
                 />
@@ -78,7 +67,7 @@ function ParticipantForm({requestType, id, participant}){
                 <label>Company</label>
                 <select
                     value={companyId}
-                    onChange={event => setCompanyId(event.target.value)}
+                    onChange={handleChange}
                 >
                     <option>Select a option</option>
                     {
@@ -91,8 +80,8 @@ function ParticipantForm({requestType, id, participant}){
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Participant created</div>}
-            {errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }

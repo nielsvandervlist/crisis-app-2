@@ -2,8 +2,9 @@ import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCircleDot, faFire, faEnvelope, faBuilding, faUser, faUsers, faClock, faPlus, faFile} from '@fortawesome/free-solid-svg-icons'
 import {useRouter, usePathname} from 'next/navigation'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
 
-function SidebarMain({user}){
+function SidebarMain({user}) {
 
     const router = useRouter();
     const pathname = usePathname()

@@ -1,4 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
 function Modal({open, setOpen, children, title}) {
     if (!open) {
@@ -11,7 +12,7 @@ function Modal({open, setOpen, children, title}) {
             <div className={'modal__block card z-20'}>
                 <div className={'modal__header flex'}>
                     <h2>{title}</h2>
-                    <span className={'ml-auto cursor-pointer'} onClick={() => setOpen(false)}><FontAwesomeIcon icon={'circle-xmark'}/></span>
+                    <span className={'ml-auto cursor-pointer'} onClick={() => setOpen(false)}><FontAwesomeIcon icon={faCircleXmark}/></span>
                 </div>
                 <div className={'modal__content'}>
                     {children}

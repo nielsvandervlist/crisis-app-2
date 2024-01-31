@@ -9,9 +9,13 @@ const Crisis = () => {
     const [crisis, setCrisis] = useGetData(`/api/crises/${params.pid}`, {company: true})
     const [documents, setDocuments] = useGetData(`/api/documents`, {crisis_id: params.pid})
 
+    if(!crisis){
+        return <></>
+    }
+
     return (
         <>
-            {crisis && <CrisisForm requestType={'update'} id={pid} crisis={crisis} documents={documents}/>}
+            {crisis && <CrisisForm requestType={'update'} id={params.pid} crisis={crisis} documents={documents}/>}
         </>
     )
 }

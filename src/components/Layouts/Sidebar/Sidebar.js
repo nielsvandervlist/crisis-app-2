@@ -1,8 +1,11 @@
 import SidebarMain from '@/components/Layouts/Sidebar/SidebarMain'
 import SidebarExtra from '@/components/Layouts/Sidebar/SidebarExtra'
 import {useRouter} from 'next/navigation'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
 
-function Sidebar({user}) {
+function Sidebar() {
+
+    const user = useAuthContext();
 
     return <div className={'sidebar'}>
         <div className={'sidebar__logo flex justify-center items-center'}>
@@ -12,8 +15,9 @@ function Sidebar({user}) {
             <h1><b className={''}>cata</b></h1>
         </div>
         <SidebarMain user={user}/>
-        <SidebarExtra />
+        {/*<SidebarExtra user={user}/>*/}
     </div>
 }
 
 export default Sidebar
+8

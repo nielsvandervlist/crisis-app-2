@@ -1,5 +1,4 @@
-import {useEffect, useState} from 'react'
-import {useAuth} from '@/hooks/auth'
+import { useAuthContext } from '@/components/Layouts/AuthContext';
 import Link from 'next/link'
 import FileUpload from '@/components/FileUpload'
 import useGetData from '@/hooks/useGetData'
@@ -7,38 +6,29 @@ import {useHandle} from '@/hooks/useHandle'
 
 function PostForm({requestType, id, post}) {
 
-    const {user} = useAuth({middleware: 'auth'})
-    const [postTypes] = useGetData('/api/post_types')
+    const user = useAuthContext();
 
+    const [postTypes] = useGetData('/api/post_types')
+    const url = requestType === 'post' ? '/api/posts' : `/api/posts/${id}`
     const fieldsArray = ['title', 'description', 'post_type_id', 'online', 'thumbnail']
+    const edit = requestType === 'update' ? post.data : null
+
     const params = {
         'user_id': user?.id,
     }
-    const url = requestType === 'post' ? '/api/posts' : `/api/posts/${id}`
 
     let {
         formData,
-        setFormData,
         handleChange,
         handleFile,
         handleSubmit,
         response,
         errors
-    } = useHandle(fieldsArray, url, requestType, params)
+    } = useHandle(fieldsArray, url, requestType, params, edit)
 
     let { title, description, post_type_id, online, thumbnail } = formData
 
-    useEffect(() => {
-        if (post && post.data) {
-            setFormData({...post.data})
-        }
-    }, [setFormData])
-
-    if(!postTypes){
-        return <></>
-    }
-
-    if (!user) {
+    if(!postTypes || !user){
         return <></>
     }
 

@@ -1,12 +1,32 @@
 import {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Fetcher} from 'ra-fetch'
+import {del, store} from '@/hooks/methods'
+import {faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
-function MultipleFileUpload({file, setFile, label, documents, filesOnly}) {
+//TODO remove duplicates is not working
+function MultipleFileUpload({file, setFile, response, label, documents, filesOnly}) {
 
     const [preview, setPreview] = useState()
     const [filePreview, setFilePreview] = useState([])
     const [error, setError] = useState()
+
+    function sendFiles(files, response) {
+        files.forEach(file => {
+            store('/api/documents', {
+                'name': file.name,
+                'crisis_id': response.data.id,
+                'user_id': user?.id,
+                'url': file,
+                'inserted': 0,
+            }).then(r => console.log(r))
+        })
+    }
+
+    useEffect(() => {
+        if (response && file) {
+            sendFiles(file, response)
+        }
+    }, [response])
 
     useEffect(() => {
         if(documents){
@@ -35,12 +55,10 @@ function MultipleFileUpload({file, setFile, label, documents, filesOnly}) {
             return false
         }
 
-        Fetcher.api('backend').delete('documents', {
-            id: id,
-        }).then(res => {
-            console.log(res)
-        })
+        del(`/api/documents/${id}`, {}).then(r => console.log(r))
+
     }
+
 
     useEffect(() => {
         let files = [...filePreview]
@@ -67,6 +85,32 @@ function MultipleFileUpload({file, setFile, label, documents, filesOnly}) {
     return <div className={`file-upload ${preview ? 'file-upload--preview' : ''}`}>
 
         {error && <div className={'btn btn--form-error my-4'}>{error}</div>}
+        {
+            preview &&
+            <div className={'file-upload__preview'}>
+                <img src={preview}/>
+            </div>
+        }
+        {
+            filePreview &&
+            <div className={'file-upload__file-preview mb-8'}>
+                <ul>
+                    {
+                        filePreview.map((file, index) => {
+                            return <li key={index} className={'flex items-center'}>
+                                {file.name ? file.name : file[0].name ? file[0].name : 'No name found'}
+                                <span
+                                    className={'pl-6 ml-auto text-primarysoft cursor-pointer'}
+                                    onClick={() => removeDocument(file.name, file.id)}
+                                >
+                                    <FontAwesomeIcon icon={faCircleXmark}/>
+                                </span>
+                            </li>
+                        })
+                    }
+                </ul>
+            </div>
+        }
 
         <div className={'file-upload__input'}>
             <label className={'btn btn--soft'} htmlFor={'file'}>{!preview ? label : 'Change file'}</label>
@@ -78,32 +122,6 @@ function MultipleFileUpload({file, setFile, label, documents, filesOnly}) {
                 onChange={event => setFile((file) => removeDuplicates(file, event))}
             />
         </div>
-        {
-            preview &&
-            <div className={'file-upload__preview'}>
-                <img src={preview}/>
-            </div>
-        }
-        {
-            filePreview &&
-            <div className={'file-upload__file-preview'}>
-                <ul>
-                    {
-                        filePreview.map((file, index) => {
-                            return <li key={index} className={'flex items-center'}>
-                                {file.name}
-                                <span
-                                    className={'pl-6 ml-auto text-primarysoft cursor-pointer'}
-                                    onClick={() => removeDocument(file.name, file.id)}
-                                >
-                                    <FontAwesomeIcon icon={'circle-xmark'}/>
-                                </span>
-                            </li>
-                        })
-                    }
-                </ul>
-            </div>
-        }
     </div>
 }
 

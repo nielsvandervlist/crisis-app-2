@@ -1,16 +1,14 @@
 'use client'
-import Link from 'next/link'
 import Pusher from 'pusher-js'
-import {useAuth} from '@/hooks/auth'
+import Link from 'next/link'
 import {useEffect, useState} from 'react'
 import Echo from 'laravel-echo'
 import axios from '@/lib/axios'
 import Popup from '@/components/Popup/Popup'
 import useGetData from '@/hooks/useGetData'
 
-function SidebarExtra() {
+function SidebarExtra({user}) {
 
-    const {user} = useAuth({middleware: 'auth'})
     const [message, setMessage] = useState()
 
     const [notifications, setNotifications] = useGetData('/api/notifications', {read: 0})

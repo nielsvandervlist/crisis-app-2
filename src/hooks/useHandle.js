@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react'
 import {store, update} from '@/hooks/methods'
 
-export const useHandle = (fieldsArray, url, type, params) => {
+export const useHandle = (fieldsArray, url, type, params, edit) => {
 
     const [response, setResponse] = useState()
     const [errors, setErrors] = useState([])
@@ -11,7 +11,14 @@ export const useHandle = (fieldsArray, url, type, params) => {
     fieldsArray.forEach(field => {
         initialFormData[field] = '';
     });
+
     const [formData, setFormData] = useState(initialFormData);
+
+    useEffect(() => {
+        if (edit) {
+            setFormData({...edit})
+        }
+    }, [setFormData])
 
     const handleChange = (e) => {
         const { name, value } = e.target;

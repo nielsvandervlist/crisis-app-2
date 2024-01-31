@@ -1,9 +1,7 @@
 'use client'
-import AppLayout from '@/components/Layouts/AppLayout'
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import PostForm from '@/components/Forms/PostForm'
-import Link from 'next/link'
-import Twitter from '@/components/PostTypes/Twitter'
 
 function Create() {
     return (

@@ -1,37 +1,41 @@
 import {useEffect, useState} from 'react'
-import useAuth from '@/hooks/auth'
-import {Fetcher} from 'ra-fetch'
+import {useAuth} from '@/hooks/auth'
+import useGetData from '@/hooks/useGetData'
+import Modal from '@/components/Modal/Modal'
+import Button from '@/components/Button'
+import ParticipantForm from '@/components/Participants/ParticipantForm'
 
 function GetParticipants({company_id, alignRight, info, participant}) {
 
     const {user} = useAuth({middleware: 'auth'})
-    const [participants, setParticipants] = useState()
+    const [participants, setParticipants] = useGetData('/api/participants', {
+        company_id: company_id,
+        user_id: participant ? participant.user_id : user?.id,
+    })
 
-    useEffect(() => {
-        if (user?.id) {
-            Fetcher.api('backend').index('participants', {
-                user_id: participant ? participant.user_id : user?.id,
-                company_id: company_id,
-            }).then(res => setParticipants(res))
-        }
-    }, [user?.id])
+    const [open, setOpen] = useState(false)
 
-    if (!participants || !participants.data.length || participants.loading) {
-        return <></>
-    }
-
-    return <div className={'participants flex'}>
+    return <div className={'participants'}>
+        <div className={'flex mb-8'}>
         {
+            participants && participants.data &&
             participants.data.map((participant, index) => {
-
                 return <div key={index} className={'flex flex-col items-center justify-center participants__block'}>
-                    <figure className={`rounded-full h-10 w-10 relative overflow-hidden ${alignRight ? 'flex-row-reverse' : ''}`}>
+                    <figure
+                        className={`rounded-full h-10 w-10 relative overflow-hidden ${alignRight ? 'flex-row-reverse' : ''}`}>
                         <img src={'/images/Portrait_Placeholder.png'} alt={''} title={participant.name}/>
                     </figure>
                     <div className={'btn btn--label-small'}>{participant.name}</div>
                 </div>
             })
         }
+        </div>
+        <div>
+            <span className={'btn btn--soft cursor-pointer'} onClick={() => setOpen(!open)}>Add new participant</span>
+            <Modal open={open} setOpen={setOpen} title={'Add participants'}>
+                <ParticipantForm requestType={'post'}/>
+            </Modal>
+        </div>
     </div>
 }
 

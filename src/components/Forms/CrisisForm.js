@@ -1,49 +1,33 @@
-// import GetParticipants from '@/components/Participants/GetParticipants'
-// import FileUpload from '@/components/Forms/FileUpload'
-// import MultipleFileUpload from '@/components/Forms/MultipleFileUpload'
 import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
+import {useAuth} from '@/hooks/auth'
+import GetParticipants from '@/components/Participants/GetParticipants'
+import MultipleFileUpload from '@/components/Forms/MultipleFileUpload'
+import {store} from '@/hooks/methods'
+import {useEffect, useState} from 'react'
 
 function CrisisForm({requestType, crisis, id, documents}) {
 
+    const {user} = useAuth({middleware: 'auth'})
     const fieldsArray = ['title', 'description', 'company_id', 'status']
     const [companies] = useGetData('/api/companies')
     const url = requestType === 'post' ? '/api/crises' : `/api/crises/${id}`
+    const [file, setFile] = useState()
+    const edit = requestType === 'update' ? crisis.data : null
 
     const params = {
-        'user_id': 1,
+        'user_id': user?.id,
         'status': 0,
     }
 
     let {
         formData,
-        setFormData,
         handleChange,
-        handleFile,
         handleSubmit,
         response,
-        errors
-    } = useHandle(fieldsArray, url, requestType, params)
+    } = useHandle(fieldsArray, url, requestType, params, edit)
 
     let { title, description, company_id, status } = formData
-    //
-    // function sendFiles(files, response) {
-    //     files.forEach(file => {
-    //         Fetcher.api('backend').store('documents', {
-    //             'name': file.name,
-    //             'crisis_id': response.data.id,
-    //             'user_id': user.id,
-    //             'url': file,
-    //             'inserted': 0,
-    //         })
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     if (response && file) {
-    //         sendFiles(file, response)
-    //     }
-    // }, [response])
 
     if(!companies){
         return <></>
@@ -92,18 +76,19 @@ function CrisisForm({requestType, crisis, id, documents}) {
                 </div>
             }
             <div className={'form__block'}>
-                <label>Participants</label>
-                {/*{company && <GetParticipants company_id={company.id}/>}*/}
+                <label className={'my-6 font-bold text-lg'}>Participants</label>
+                {crisis?.data.company && <GetParticipants company_id={crisis?.data.company.id}/>}
             </div>
             <div className={'form__block'}>
-                <label>Files</label>
-                {/*<MultipleFileUpload*/}
-                {/*    filesOnly={true}*/}
-                {/*    file={file}*/}
-                {/*    documents={documents}*/}
-                {/*    setFile={setFile}*/}
-                {/*    label={'Submit your files'}*/}
-                {/*/>*/}
+                <label className={'my-6 font-bold text-lg'}>Files</label>
+                <MultipleFileUpload
+                    response={response}
+                    filesOnly={true}
+                    file={file}
+                    documents={documents}
+                    setFile={setFile}
+                    label={'Upload documents for crisis'}
+                />
             </div>
         </fieldset>
         <div className={'flex items-center'}>

@@ -1,13 +1,13 @@
 'use client'
 
-import {get} from '@/hooks/methods'
+import {useGet} from '@/hooks/methods'
 import PostForm from '@/components/Forms/PostForm'
 import List from '@/components/Lists/List'
 import useGetData from '@/hooks/useGetData'
 
 export default function Page() {
 
-    const [items, setItems] = useGetData('/api/posts')
+    const { items: items, isLoading, isError } = useGet('/api/posts');
 
     if(!items){
         return <></>
