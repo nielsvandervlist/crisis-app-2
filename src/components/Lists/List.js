@@ -25,7 +25,6 @@ export default function List({items, setItems, type}) {
         const filtered = items.data.filter(item => {
             return item.id !== id
         })
-
         setItems({loading: false, data: filtered})
     }
 

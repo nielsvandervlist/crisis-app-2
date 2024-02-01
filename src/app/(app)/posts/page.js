@@ -1,12 +1,11 @@
-import {useAuth} from '@/hooks/auth'
+'use client'
 import List from '@/components/Lists/List'
 import Link from 'next/link'
-import useGetData from '@/hooks/useGetData'
+import {useGet} from '@/hooks/methods'
 
 const Posts = () => {
 
-    const {user} = useAuth({middleware: 'auth'})
-    const [posts, setPosts] = useGetData('/api/posts')
+    const [posts, setPosts] = useGet('/api/posts')
 
     return (
         <>

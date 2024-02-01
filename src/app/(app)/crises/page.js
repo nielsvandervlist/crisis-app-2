@@ -1,41 +1,27 @@
-import AppLayout from '@/components/Layouts/AppLayout'
-import Head from 'next/head'
-import useAuth from '@/hooks/auth'
+'use client'
 import {useEffect, useState} from 'react'
-import {Fetcher} from 'ra-fetch'
 import List from '@/components/Lists/List'
 import CreateCrisis from '@/components/Crisis/CreateCrisis'
 import OnlineCrisis from '@/components/Crisis/OnlineCrisis'
 import StartCrisis from '@/components/Crisis/StartCrisis'
+import {useGet} from '@/hooks/methods'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
 
 const Crises = () => {
 
-    const {user} = useAuth({middleware: 'auth'})
-    const [crises, setCrises] = useState()
     const [activeCrisis, setActiveCrisis] = useState()
+    const user = useAuthContext()
 
-    useEffect(() => {
-        if (user?.id) {
-            Fetcher.api('backend')
-                .index('crises', {
-                    user_id: user?.id,
-                    online: 1,
-                })
-                .then((res) => setCrises(res))
-        }
-    }, [user?.id])
+    const [crises, setCrises, isLoading, isError] = useGet('/api/crises', {
+        'user_id': user?.id,
+    })
+
+    if(isLoading){
+        return <div>No active crises</div>
+    }
 
     return (
-        <AppLayout
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
-                </h2>
-            }>
-
-            <Head>
-                <title>Laravel - Dashboard</title>
-            </Head>
+        <>
 
             {
                 crises && <>
@@ -47,7 +33,7 @@ const Crises = () => {
 
             {crises && <List items={crises} setItems={setCrises} type={'crises'}/>}
 
-        </AppLayout>
+        </>
     )
 }
 

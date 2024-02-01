@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react'
-import {Fetcher} from 'ra-fetch'
 import Link from 'next/link'
+import {update, useGet} from '@/hooks/methods'
 
 function OnlineCrisis({crises, activeCrisis}) {
 
-    const [onlineCrisis, setOnlineCrisis] = useState()
+    const [onlineCrisis, setOnlineCrisis] = useGet('/api/crises', {
+        status: 1
+    })
 
     useEffect(() => {
         const filter = crises.data.filter(crises => crises.status === 1)
@@ -16,9 +18,8 @@ function OnlineCrisis({crises, activeCrisis}) {
     }, [activeCrisis])
 
     function stopCrisis(id){
-        Fetcher.api('backend').update('crises', {
-            id: id,
-            status: 0
+        update(`/api/crises/${id}`, {
+            status: 0,
         })
     }
 

@@ -1,17 +1,14 @@
-import Link from 'next/link'
 import {useState} from 'react'
-import {useApi} from 'ra-fetch'
-import {Fetcher} from 'a-fetch'
+import {update} from '@/hooks/methods'
 
 function StartCrisis({crises, setActiveCrisis}){
 
     const [crisis, setCrisis] = useState()
 
     function submit() {
-        Fetcher.api('backend').update('crises', {
-            'id': crisis,
-            'status': 1,
-        }).then(res => setActiveCrisis(res)).catch(err => console.log(err))
+        update(`/api/crises/${crisis}`, {
+            status: 1,
+        }).then(response => setActiveCrisis(response))
     }
 
     return <div className={'card col-span-4 flex flex-col'}>

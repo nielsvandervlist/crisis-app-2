@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/crises/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/crises/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Crisis/StartCrisis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Crisis/StartCrisis.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/methods.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +78,22 @@
       <workItem from="1706350410263" duration="462000" />
       <workItem from="1706351293115" duration="686000" />
       <workItem from="1706352038435" duration="20548000" />
-      <workItem from="1706524348102" duration="24788000" />
+      <workItem from="1706524348102" duration="31964000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -53,12 +53,7 @@ export function useGet(url, params) {
         setData(initialData);
     }, [initialData]);
 
-    return {
-        data,
-        setData,
-        isLoading: !data && !error,
-        isError: error
-    };
+    return [data, setData, !data && !error, error];
 }
 
 
@@ -81,8 +76,6 @@ export async function store(url, data, setResponse, setErrors) {
 
 export async function update(url, data, setResponse, setErrors) {
     await csrf()
-
-    setErrors([])
 
     axios
         .post(url, form({ ...data, _method: 'PUT' }), {
