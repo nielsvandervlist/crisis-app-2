@@ -1,4 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons'
 
 function Facebook({social}){
 
@@ -11,7 +12,7 @@ function Facebook({social}){
                     <span>5 mins . <FontAwesomeIcon icon="users"/></span>
                 </div>
             </div>
-            <FontAwesomeIcon icon="ellipsis-vertical"/>
+            <FontAwesomeIcon icon={faEllipsisVertical}/>
             <h3>{social.title}</h3>
             <p>{social.description}</p>
         </div>

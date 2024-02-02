@@ -11,8 +11,6 @@ export default function RoomWrapper({user, chatRoomId}) {
     const [subscribed, setSubscribed] = useState(false)
     const [first, setFirst] = useState(false)
 
-    console.log(messages)
-
     useEffect(() => {
         if (user?.id && !first) {
             Fetcher.api('backend').show('chat_rooms', {

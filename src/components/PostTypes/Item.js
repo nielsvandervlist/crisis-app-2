@@ -7,9 +7,6 @@ function Item({ onMount, onUnmount, columnHeights, children }) {
     const gridColumn = `${shortestColumnIndex + 1} / span 1`;
 
     useEffect(() => {
-
-        console.log(ref.current.clientHeight)
-
         onMount(shortestColumnIndex, ref.current.clientHeight);
         return () => {
             onUnmount(shortestColumnIndex, ref.current.clientHeight);

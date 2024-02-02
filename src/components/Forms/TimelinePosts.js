@@ -1,34 +1,27 @@
 import {useEffect, useRef, useState} from 'react'
-import {Fetcher, useApi, useIndex} from 'ra-fetch'
-import useAuth from '@/hooks/auth'
 import Modal from '@/components/Modal/Modal'
 import TimelinePostForm from '@/components/Forms/TimelinePostForm'
 import Line from '@/components/Timeline/Line'
 import GetParticipants from '@/components/Participants/GetParticipants'
 import TimelinePostsHeader from '@/components/Timeline/TimelinePostsHeader'
 import TimelinePostsFooter from '@/components/Timeline/TimelinePostsFooter'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
+import {useGet} from '@/hooks/methods'
 
-function TimelinePosts({duration, title, timeline, setTimeline, participant}) {
+function TimelinePosts({timeline, setTimeline, participant}) {
 
-    const {user} = useAuth({middleware: 'auth'})
+    const {user} = useAuthContext()
     const [open, setOpen] = useState(false)
-    const [posts, setPosts] = useState('')
-    const [timelinePosts, setTimelinePosts] = useState([])
+    const [posts, setPosts] = useGet('/api/posts', {
+        user_id: user?.id
+    })
+
+    const [timelinePosts, setTimelinePosts, isLoading] = useGet('/api/timeline_posts', {
+        timeline_id: timeline.data.id,
+        post: true
+    })
+
     const [edit, setEdit] = useState()
-
-    useEffect(() => {
-        if (user?.id) {
-            Fetcher.api('backend').index('posts', {
-                user_id: user?.id,
-            }).then(res => setPosts(res))
-
-            Fetcher.api('backend').index('timeline_posts', {
-                timeline_id: timeline.data.id,
-                post: true,
-            }).then(res => setTimelinePosts(res))
-                .catch(err => console.log(err))
-        }
-    }, [user?.id])
 
     useEffect(() => {
         if(!open){
@@ -36,22 +29,22 @@ function TimelinePosts({duration, title, timeline, setTimeline, participant}) {
         }
     }, [open])
 
-    if (timelinePosts.loading || timelinePosts.length < 1) {
+    if(isLoading){
         return <></>
     }
 
     return <div className={'card col-span-12 timeline-posts'}>
-        <TimelinePostsHeader title={title}/>
+        <TimelinePostsHeader title={timeline.data.title}/>
 
         <div id={'line'} className={'w-full'}/>
 
         <Line
+            duration={timeline.data.duration}
             setTimelinePosts={setTimelinePosts}
             timeline={timeline}
             timelinePosts={timelinePosts}
-            setOpen={setOpen}
-            duration={duration}
             open={open}
+            setOpen={setOpen}
             edit={edit}
             setEdit={setEdit}
         />
@@ -62,7 +55,7 @@ function TimelinePosts({duration, title, timeline, setTimeline, participant}) {
             <TimelinePostForm
                 timelinePosts={timelinePosts}
                 setTimelinePosts={setTimelinePosts}
-                duration={duration}
+                duration={timeline.data.duration}
                 posts={posts}
                 user={user}
                 timelineId={timeline.data.id}

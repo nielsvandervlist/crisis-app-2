@@ -1,16 +1,14 @@
 import GetParticipants from '@/components/Participants/GetParticipants'
 import {useEffect} from 'react'
-import useAuth from '@/hooks/auth'
-import {Fetcher} from 'ra-fetch'
 
 function TimelinePostsFooter({company_id, timeline, setTimeline}) {
-
-    function submit(){
-        Fetcher.api('backend').update('timelines', {
-            id: timeline.data.id,
-            online: timeline.data.online ? 0 : 1,
-        }).then(res => setTimeline(res))
-    }
+    //
+    // function submit(){
+    //     Fetcher.api('backend').update('timelines', {
+    //         id: timeline.data.id,
+    //         online: timeline.data.online ? 0 : 1,
+    //     }).then(res => setTimeline(res))
+    // }
 
     return <div className={'timeline-posts__footer'}>
         <div className={'timeline-posts-profiles'}>

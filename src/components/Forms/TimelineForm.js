@@ -1,37 +1,37 @@
-import {useEffect, useState} from 'react'
-import {Fetcher, useApi, useIndex} from 'ra-fetch'
-import useAuth from '@/hooks/auth'
+import {useGet} from '@/hooks/methods'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
+import {useHandle} from '@/hooks/useHandle'
+import {useEffect} from 'react'
 
-function TimelineForm({duration, setDuration, title, setTitle, setTimeline, crisis, setCrisis, company, setCompany}) {
+function TimelineForm({timeline, requestType}) {
 
-    const {user} = useAuth({middleware: 'auth'})
-    const [response, setResponse] = useState()
-    const [errors, setErrors] = useState()
-    const [crises, setCrises] = useState()
+    const user = useAuthContext()
+    const [crises, setCrises] = useGet('/api/crises', {user: user?.id})
+    const [companies, setCompanies] = useGet('/api/companies', {user: user?.id})
+    const url = requestType === 'post' ? '/api/timelines' : `/api/timelines/${timeline.data.id}`
+    const fieldsArray = ['title', 'duration', 'company_id', 'crisis_id', 'online', 'time', 'user_id']
+    const edit = requestType === 'update' ? timeline.data : null
 
-    const companies = useApi('backend').index('companies')
-
-    function submit(e) {
-        e.preventDefault()
-        Fetcher.api('backend').store('timelines', {
-            title: title,
-            duration: duration,
-            company_id: company,
-            crisis_id: crisis,
-            user_id: user.id,
-            online: 0,
-            time: 0,
-        })
-            .then(response => setTimeline(response))
-            .catch(errors => setErrors(errors))
+    const params = {
+        user_id: user?.id,
+        online: 0,
+        time: 0,
     }
 
-    useEffect(() => {
-        if(user?.id){
-            Fetcher.api('backend').index('crises').then(res => setCrises(res)).catch(err => console.log(err))
-        }
+    let {
+        formData,
+        setFormData,
+        handleChange,
+        handleSubmit,
+        response,
+        errors
+    } = useHandle(fieldsArray, url, requestType, params, edit)
 
-    }, [user?.id])
+    useEffect(() => {
+        if (timeline && timeline.data) {
+            setFormData({...timeline.data})
+        }
+    }, [setFormData])
 
     return <form className={'card col-span-8 form'}>
         <fieldset className={'grid grid-cols-12 gap-4'}>
@@ -40,9 +40,9 @@ function TimelineForm({duration, setDuration, title, setTitle, setTimeline, cris
                 <label>Title</label>
                 <input
                     type={'text'}
-                    value={title}
+                    value={formData.title}
                     placeholder={'Title'}
-                    onChange={event => setTitle(event.target.value)}
+                    onChange={handleChange}
                     id={'title'}
                     name={'title'}
                 />
@@ -51,38 +51,43 @@ function TimelineForm({duration, setDuration, title, setTitle, setTimeline, cris
                 <label>Duration in hours</label>
                 <input
                     type={'number'}
-                    value={duration}
-                    onChange={event => setDuration(event.target.value)}
+                    value={formData.duration}
+                    onChange={handleChange}
                     id={'duration'}
                     name={'duration'}
                 />
             </div>
-            <div className={'form__block col-span-6'}>
-                <label>Company</label>
-                <select
-                    value={company}
-                    onChange={event => setCompany(event.target.value)}
-                >
-                    <option>Select a option</option>
-                    {
-                        companies[0].data.map((company, index) => {
-                            return <option key={index} value={company.id}>{company.name}</option>
-                        })
-                    }
-                </select>
-            </div>
+            {
+                companies && companies.data &&
+                <div className={'form__block col-span-6'}>
+                    <label>Company</label>
+                    <select
+                        value={formData.company}
+                        onChange={handleChange}
+                        name={'company_id'}
+                    >
+                        <option>Select a option</option>
+                        {
+                            companies.data.map((company, index) => {
+                                return <option name={company.name} key={index} value={company.id}>{company.name}</option>
+                            })
+                        }
+                    </select>
+                </div>
+            }
             {
                 crises && !crises.loading && crises.data.length > 0 &&
                 <div className={'form__block col-span-6'}>
                     <label>Crisis</label>
                     <select
-                        value={crisis}
-                        onChange={event => setCrisis(event.target.value)}
+                        name={'crisis_id'}
+                        value={formData.crisis}
+                        onChange={handleChange}
                     >
                         <option>Select a option</option>
                         {
                             crises.data.map((crisis, index) => {
-                                return <option key={index} value={crisis.id}>{crisis.title}</option>
+                                return <option name={crisis.title} key={index} value={crisis.id}>{crisis.title}</option>
                             })
                         }
                     </select>
@@ -91,8 +96,8 @@ function TimelineForm({duration, setDuration, title, setTitle, setTimeline, cris
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Timeline created</div>}
-            {errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }

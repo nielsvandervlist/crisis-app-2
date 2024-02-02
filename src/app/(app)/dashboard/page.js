@@ -12,8 +12,6 @@ export default function Page() {
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error: {isError.message}</div>;
 
-    console.log(data)
-
     return (
         <div className={'col-span-12'}>
             {/*<List items={items} setItems={setItems} type={'posts'}/>*/}

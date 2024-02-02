@@ -20,8 +20,6 @@ function ReactionForm({ requestType, id, reaction }) {
     }
 
     const handleChange = (e) => {
-        console.log(e.target.files[0])
-
         const { name, value } = e.target
         setFormData(prevState => ({
             ...prevState,

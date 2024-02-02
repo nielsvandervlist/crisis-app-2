@@ -1,4 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons'
 
 function TimelinePostsHeader({title}){
     return <div className={'timeline-posts__header'}>
@@ -7,7 +8,7 @@ function TimelinePostsHeader({title}){
             {/*<span>{dateString[1]}</span>*/}
         </div>
         <h2>{title}</h2>
-        <FontAwesomeIcon icon="ellipsis-vertical"/>
+        <FontAwesomeIcon icon={faEllipsisVertical}/>
     </div>
 }
 

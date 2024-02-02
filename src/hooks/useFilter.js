@@ -47,7 +47,6 @@ export function useFilter(items){
 
     useEffect(() => {
         if(items && value !== ''){
-            console.log("Items:", items);
             setSortedItems(filterValues(items, {name: value, title: value}))
         }
     }, [value, items])

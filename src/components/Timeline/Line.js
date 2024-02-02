@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react'
 import EditBox from '@/components/Timeline/EditBox'
-import {Fetcher} from 'ra-fetch'
+import {useGet} from '@/hooks/methods'
 
 function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline}) {
 
@@ -28,7 +28,7 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
 
             placement.push({
                 post_id: post.id,
-                pixels: Math.round(postMinute),
+                pixels: Math.round(postMinute - 20),
             })
         })
 
@@ -56,9 +56,10 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
     useEffect(() => {
         if (timeline.data.online) {
             const interval = setInterval(() => {
-                Fetcher.api('backend').show('timelines', {
-                    id: timeline.data.id,
-                }).then(res => createLine(res.data.time))
+                const [time, setTime, isLoading] = useGet(`/api/timelines/${timeline.data.id}`)
+                if(!isLoading){
+                    createLine(time.data.time)
+                }
             }, 60 * 1000)
 
             return () => clearInterval(interval);
@@ -98,7 +99,9 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
             <div className={'timeline-posts-time flex justify-between'}>
                 {
                     line.blocks.map((block, index) => {
-                        return <span key={index}>{block}</span>
+                        return <div className={'relative'} key={index}>
+                            <span>{block}</span>
+                        </div>
                     })
                 }
             </div>
