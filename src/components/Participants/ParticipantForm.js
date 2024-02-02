@@ -1,13 +1,13 @@
 import {useEffect, useState} from 'react'
-import {useAuth} from '@/hooks/auth'
-import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
+import {useGet} from '@/hooks/methods'
+import {useAuthContext} from '@/components/Layouts/AuthContext'
 
 function ParticipantForm({requestType, id, participant}){
-    const {user} = useAuth({middleware: 'auth'})
-    const [companies, setCompanies] = useGetData('/api/companies')
-    const [companyId, setCompanyId] = useState()
 
+    const user = useAuthContext()
+    const [companies, setCompanies] = useGet('/api/companies')
+    const [companyId, setCompanyId] = useState()
     const fieldsArray = ['name', 'email', 'company_id']
     const url = requestType === 'post' ? '/api/participants' : `/api/participants/${id}`
 
