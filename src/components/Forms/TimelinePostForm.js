@@ -4,15 +4,17 @@ import {useHandle} from '@/hooks/useHandle'
 
 function TimelinePostForm({timelineId, posts, timelinePosts, setTimelinePosts, setOpen, edit}) {
 
-    console.log(edit)
-
     const url = edit ? `/api/timeline_posts/${edit.id}` : '/api/timeline_posts'
-    const requestType = edit ? 'update' : 'store'
+    const requestType = edit ? 'update' : 'post'
     const fieldsArray = ['time', 'post_id', 'post_type_id', 'online', 'thumbnail']
-    const params = {}
+    const params = {
+        online: 0,
+        timeline_id: timelineId,
+    }
 
     let {
         formData,
+        setFormData,
         handleChange,
         handleSubmit,
         response,
@@ -20,6 +22,12 @@ function TimelinePostForm({timelineId, posts, timelinePosts, setTimelinePosts, s
     } = useHandle(fieldsArray, url, requestType, params, edit)
 
     let { time, post_id } = formData
+
+    useEffect(() => {
+        if (edit) {
+            setFormData({...edit})
+        }
+    }, [setFormData])
 
     //Update posts on timeline
     function addTimelinePost(response) {

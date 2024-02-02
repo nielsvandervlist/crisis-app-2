@@ -27,8 +27,9 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
             const postMinute = (width / minutes) * minute
 
             placement.push({
-                post_id: post.id,
+                id: post.id,
                 pixels: Math.round(postMinute - 20),
+                time: minute,
             })
         })
 
@@ -66,8 +67,8 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
         }
     }, [timeline.data])
 
-    function editPost(id) {
-        setEdit(id)
+    function editPost(post) {
+        setEdit(post)
     }
 
     return <div className={'timeline__line'}>
@@ -75,7 +76,7 @@ function Line({setOpen, open, duration, timelinePosts, edit, setEdit, timeline})
             <div className={'timeline-posts__edit-wrapper relative'}>
                 {
                     line.posts.map((post, index) => {
-                        return <div className={'absolute'} onClick={() => editPost(post.post_id)} key={index}
+                        return <div className={'absolute'} onClick={() => editPost(post)} key={index}
                                     style={{left: post.pixels}}>
                             <EditBox
                                 setOpen={setOpen}

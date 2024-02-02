@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/timelines/[pid]/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/timelines/create/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/timelines/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/BackButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/RoomWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/RoomWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/ReactionForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/ReactionForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelineForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelineForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTypes/Facebook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTypes/Facebook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTypes/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTypes/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timeline/EditBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/EditBox.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Timeline/Line.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/Line.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/Timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsFooter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useFilter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/timeline/timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/timeline/timeline.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +75,7 @@
       <workItem from="1706350410263" duration="462000" />
       <workItem from="1706351293115" duration="686000" />
       <workItem from="1706352038435" duration="20548000" />
-      <workItem from="1706524348102" duration="43136000" />
+      <workItem from="1706524348102" duration="44643000" />
     </task>
     <servers />
   </component>
