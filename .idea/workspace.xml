@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/documents/create/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/documents/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/[pid]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/create/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timeline/Line.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/Line.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Rapports/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rapports/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Rapports/RapportForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rapports/RapportForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +46,7 @@
     "git-widget-placeholder": "main",
     "javascript.nodejs.core.library.configured.version": "16.0.0",
     "javascript.nodejs.core.library.typings.version": "16.0.0",
-    "last_opened_file_path": "/Users/niels/bespokeweb/crisis-app-2/src/components",
+    "last_opened_file_path": "/Users/niels/bespokeweb/crisis-app-2/src/app/(app)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,8 +59,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/app/(app)" />
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components/Lists" />
@@ -75,7 +82,8 @@
       <workItem from="1706350410263" duration="462000" />
       <workItem from="1706351293115" duration="686000" />
       <workItem from="1706352038435" duration="20548000" />
-      <workItem from="1706524348102" duration="44643000" />
+      <workItem from="1706524348102" duration="45025000" />
+      <workItem from="1707038601557" duration="2570000" />
     </task>
     <servers />
   </component>
@@ -87,7 +95,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -5,6 +5,7 @@ import {useHandle} from '@/hooks/useHandle'
 function TimelinePostForm({timelineId, posts, timelinePosts, setTimelinePosts, setOpen, edit}) {
 
     const url = edit ? `/api/timeline_posts/${edit.id}` : '/api/timeline_posts'
+    const [test, setTest] = useState()
     const requestType = edit ? 'update' : 'post'
     const fieldsArray = ['time', 'post_id', 'post_type_id', 'online', 'thumbnail']
     const params = {
@@ -52,7 +53,7 @@ function TimelinePostForm({timelineId, posts, timelinePosts, setTimelinePosts, s
 
     function remove(e) {
         e.preventDefault()
-        del(`/api/timeline_posts/${edit}`)
+        del(`/api/timeline_posts/${edit.id}`, setTest)
             .then(response => removeTimelinePost(response.data, edit))
         setOpen(false)
     }

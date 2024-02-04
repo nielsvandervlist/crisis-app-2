@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Fetcher} from 'ra-fetch'
 import * as helpers from '@/helpers'
 import {useFilter} from '@/hooks/useFilter'
 import {useEffect} from 'react'
 import {faPenToSquare} from '@fortawesome/free-solid-svg-icons'
+import {del} from '@/hooks/methods'
 
 export default function DownloadList({items, setItems, type}) {
 
     const [Filter, sortedItems] = useFilter(items.data)
+    const [errors, setErrors] = useState()
 
     useEffect(() => {
         if(sortedItems && sortedItems.length > 0){
@@ -17,9 +18,7 @@ export default function DownloadList({items, setItems, type}) {
     }, [sortedItems])
 
     function submitDelete(id) {
-        Fetcher.api('backend').delete(type, {id: id})
-            .then(response => removeItem(id))
-            .catch(errors => console.log(errors))
+        del(`/api/${type}/${id}`, setErrors).then(res => removeItem(id))
     }
 
     function removeItem(id) {

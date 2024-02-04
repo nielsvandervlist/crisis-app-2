@@ -1,59 +1,37 @@
-import useAuth from '@/hooks/auth'
-import {useEffect, useState} from 'react'
-import {Fetcher} from 'ra-fetch'
+import {useEffect} from 'react'
 import Link from 'next/link'
+import {useHandle} from '@/hooks/useHandle'
+import {useGet} from '@/hooks/methods'
 
 function RapportForm({requestType, id, rapport}) {
-    const {user} = useAuth({middleware: 'auth'})
 
-    const [title, setTitle] = useState(rapport ? rapport.data.title : '')
-    const [description, setDescription] = useState(rapport ? rapport.data.description : '')
-    const [reactionScore, setReactionScore] = useState(rapport ? rapport.data.reaction_score : 0)
-    const [sharingScore, setSharingScore] = useState(rapport ? rapport.data.sharing_score : 0)
-    const [contentScore, setContentScore] = useState(rapport ? rapport.data.content_score : 0)
-    const [crises, setCrisis] = useState(rapport ? rapport.data.crisis_id : '')
-    const [crisisId, setCrisisId] = useState()
-    const [response, setResponse] = useState()
-    const [errors, setErrors] = useState()
-
-    useEffect(() => {
-        Fetcher.api('backend').index('crises')
-            .then((res) => {
-                setCrisis(res)
-            })
-    }, [])
-
-    if (!user || !crises) {
-        return <></>
-    }
+    const [crises, setCrisis, isLoading] = useGet('/api/crises')
+    const fieldsArray = ['title', 'description', 'reaction_score', 'sharing_score', 'content_score', 'crisis_id']
+    const url = requestType === 'post' ? '/api/rapports' : `/api/rapports/${id}`
 
     const params = {
-        title: title,
-        description: description,
-        reaction_score: reactionScore,
-        sharing_score: sharingScore,
-        content_score: contentScore,
-        crisis_id: crisisId,
+
     }
 
-    if (id) {
-        params.id = id
-    }
+    let {
+        formData,
+        setFormData,
+        handleChange,
+        handleSubmit,
+        response,
+        errors
+    } = useHandle(fieldsArray, url, requestType, params)
 
-    function submit(e) {
-        e.preventDefault()
+    let { title, description, reaction_score, sharing_score, content_score, crisis_id } = formData
 
-        if (requestType === 'store') {
-            Fetcher.api('backend').store('rapports', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
+    useEffect(() => {
+        if (rapport && rapport.data) {
+            setFormData({...rapport.data})
         }
+    }, [setFormData])
 
-        if (requestType === 'update') {
-            Fetcher.api('backend').update('rapports', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
-        }
+    if (isLoading || !crises) {
+        return <></>
     }
 
     return <form className={'card col-span-6 form'}>
@@ -69,7 +47,7 @@ function RapportForm({requestType, id, rapport}) {
                     type={'text'}
                     value={title}
                     placeholder={'Title'}
-                    onChange={event => setTitle(event.target.value)}
+                    onChange={handleChange}
                     id={'title'}
                     name={'title'}
                 />
@@ -80,7 +58,7 @@ function RapportForm({requestType, id, rapport}) {
                     type={'text'}
                     value={description}
                     placeholder={'Email'}
-                    onChange={event => setDescription(event.target.value)}
+                    onChange={handleChange}
                     id={'description'}
                     name={'description'}
                 />
@@ -88,13 +66,14 @@ function RapportForm({requestType, id, rapport}) {
             {!crises.loading && <div className={'form__block'}>
                 <label>Crisis</label>
                 <select
-                    value={crisisId}
-                    onChange={event => setCrisisId(event.target.value)}
+                    value={formData.crisis_id}
+                    onChange={handleChange}
+                    name={'crisis_id'}
                 >
                     <option>Select a option</option>
                     {
                         crises.data.map((crisis, index) => {
-                            return <option key={index} value={crisis.id}>{crisis.title}</option>
+                            return <option name={crisis.title} key={index} value={crisis.id}>{crisis.title}</option>
                         })
                     }
                 </select>
@@ -103,9 +82,9 @@ function RapportForm({requestType, id, rapport}) {
                 <label>Reaction score</label>
                 <input
                     type={'number'}
-                    value={reactionScore}
+                    value={formData.reaction_score}
                     placeholder={'Reaction Score'}
-                    onChange={event => setReactionScore(event.target.value)}
+                    onChange={handleChange}
                     id={'reaction_score'}
                     name={'reaction_score'}
                 />
@@ -114,9 +93,9 @@ function RapportForm({requestType, id, rapport}) {
                 <label>Sharing score</label>
                 <input
                     type={'number'}
-                    value={sharingScore}
+                    value={formData.sharing_score}
                     placeholder={'Sharing Score'}
-                    onChange={event => setSharingScore(event.target.value)}
+                    onChange={handleChange}
                     id={'sharing_score'}
                     name={'sharing_score'}
                 />
@@ -125,9 +104,9 @@ function RapportForm({requestType, id, rapport}) {
                 <label>Content score</label>
                 <input
                     type={'number'}
-                    value={contentScore}
+                    value={formData.content_score}
                     placeholder={'Content Score'}
-                    onChange={event => setContentScore(event.target.value)}
+                    onChange={handleChange}
                     id={'content_score'}
                     name={'content_score'}
                 />
@@ -135,8 +114,8 @@ function RapportForm({requestType, id, rapport}) {
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Rapport created</div>}
-            {errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }

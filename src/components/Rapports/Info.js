@@ -1,4 +1,7 @@
 function Info({rapport}) {
+
+    console.log(rapport)
+
     return <div className={'rapport-info'}>
         <div className={'rapport-info__head mb-4'}>
             <h1>Communication Crisis Training Report: {rapport.data.crisis.title}</h1>
