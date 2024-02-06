@@ -30,26 +30,23 @@ function TimelinePostForm({timelineId, posts, timelinePosts, setTimelinePosts, s
         }
     }, [setFormData])
 
-    //Update posts on timeline
     function addTimelinePost(response) {
-        let newTimelinePosts = timelinePosts.data.clone()
-        newTimelinePosts.save(response)
-        setTimelinePosts({data: newTimelinePosts})
+        let newTimelinePosts = [...timelinePosts.data]
+        newTimelinePosts.push(response)
+        setTimelinePosts({ data: newTimelinePosts })
         setOpen(false)
     }
 
+    useEffect(() => {
+        if(response?.data){
+            addTimelinePost(response.data)
+        }
+    }, [response])
+
     function removeTimelinePost(response, edit) {
-        const filter = timelinePosts.data.filter((item) => item.id !== edit)
+        const filter = timelinePosts.data.filter((item) => item.id !== edit.id)
         setTimelinePosts({data: filter})
     }
-
-    useEffect(() => {
-        if (edit) {
-            const filter = timelinePosts.data.filter((item) => item.id === edit)
-            // setTime(filter[0].time)
-            // setPostId(filter[0].post_id)
-        }
-    }, [edit])
 
     function remove(e) {
         e.preventDefault()

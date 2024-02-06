@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/documents/create/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/documents/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/[pid]/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/create/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(app)/rapports/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/documents/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/documents/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Rapports/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rapports/Info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Rapports/RapportForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rapports/RapportForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +33,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "16.0.0",
-    "javascript.nodejs.core.library.typings.version": "16.0.0",
-    "last_opened_file_path": "/Users/niels/bespokeweb/crisis-app-2/src/app/(app)",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.0.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.0.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/niels/bespokeweb/crisis-app-2/src/app/(app)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/(app)" />
@@ -83,7 +77,8 @@
       <workItem from="1706351293115" duration="686000" />
       <workItem from="1706352038435" duration="20548000" />
       <workItem from="1706524348102" duration="45025000" />
-      <workItem from="1707038601557" duration="2570000" />
+      <workItem from="1707038601557" duration="3000000" />
+      <workItem from="1707210912886" duration="1942000" />
     </task>
     <servers />
   </component>

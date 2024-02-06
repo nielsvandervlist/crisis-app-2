@@ -2,8 +2,8 @@ import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import * as helpers from '@/helpers'
 import {useFilter} from '@/hooks/useFilter'
-import {useEffect} from 'react'
-import {faPenToSquare} from '@fortawesome/free-solid-svg-icons'
+import {useEffect, useState} from 'react'
+import {faDownload, faPenToSquare, faTrash, faTrashCan} from '@fortawesome/free-solid-svg-icons'
 import {del} from '@/hooks/methods'
 
 export default function DownloadList({items, setItems, type}) {
@@ -69,7 +69,7 @@ export default function DownloadList({items, setItems, type}) {
                                 <a target={'__blank'} href={`${process.env.NEXT_PUBLIC_SPACE}/${item.url}`}>
                                     <span
                                         className={'btn btn--primary btn--label btn--icon mr-4'}>
-                                        <FontAwesomeIcon icon="fa-solid fa-download" />
+                                        <FontAwesomeIcon icon={faDownload} />
                                     </span>
                                 </a>
                                 <Link href={`/${type}/${item.id}`} className={'btn btn--primary btn--label btn--icon mr-4'}>
@@ -79,7 +79,7 @@ export default function DownloadList({items, setItems, type}) {
                                     onClick={() => submitDelete(item.id)}
                                     className={'btn btn--primary btn--label btn--icon'}
                                 >
-                                    <FontAwesomeIcon icon="trash-can"/>
+                                    <FontAwesomeIcon icon={faTrashCan}/>
                                 </div>
                             </div>
                         </td>
