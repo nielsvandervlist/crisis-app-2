@@ -1,16 +1,15 @@
-import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
 import {useAuth} from '@/hooks/auth'
 import GetParticipants from '@/components/Participants/GetParticipants'
 import MultipleFileUpload from '@/components/Forms/MultipleFileUpload'
-import {store} from '@/hooks/methods'
 import {useEffect, useState} from 'react'
+import { useGet } from "@/hooks/methods"
 
 function CrisisForm({requestType, crisis, id, documents}) {
 
     const {user} = useAuth({middleware: 'auth'})
     const fieldsArray = ['title', 'description', 'company_id', 'status']
-    const [companies] = useGetData('/api/companies')
+    const [companies] = useGet('/api/companies')
     const url = requestType === 'post' ? '/api/crises' : `/api/crises/${id}`
     const [file, setFile] = useState()
     const edit = requestType === 'update' ? crisis.data : null

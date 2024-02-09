@@ -10,7 +10,7 @@ import {useGet} from '@/hooks/methods'
 
 function TimelinePosts({timeline, setTimeline, participant}) {
 
-    const {user} = useAuthContext()
+    const user = useAuthContext();
     const [open, setOpen] = useState(false)
     const [posts, setPosts] = useGet('/api/posts', {
         user_id: user?.id

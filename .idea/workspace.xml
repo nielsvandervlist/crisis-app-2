@@ -5,10 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f876547c-72d6-4598-b99b-0d3ddab12a40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/companies/[pid]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/companies/create/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/companies/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(app)/notifications/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dashboard/DashboardWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/crises/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/crises/[pid]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/dashboard/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(app)/documents/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/documents/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists/DownloadList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/posts/[pid]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/rapports/[pid]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/rapports/[pid]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(app)/rapports/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(app)/rapports/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Companies/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Companies/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Crisis/OnlineCrisis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/CrisisForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/CrisisForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/PostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/TimelinePosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/TimelinePosts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Info/NewCrisis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Info/NewCrisis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layouts/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/AuthContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layouts/Sidebar/SidebarExtra.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Lists/NotificationsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists/NotificationsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Participants/GetParticipants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Participants/GetParticipants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostTypes/Facebook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTypes/Facebook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostTypes/PostWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTypes/PostWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostTypes/Twitter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTypes/Twitter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Timeline/Line.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/Line.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline/TimelinePostsFooter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/methods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/containers/card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/containers/card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/containers/pinterestlayout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/containers/pinterestlayout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/posttypes/twitter.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/posttypes/twitter.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,28 +61,29 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1 (1)" />
   <component name="ProjectId" id="2bRwxwaTph5OcGLgVpZcgO5mReW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.0.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.0.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/niels/bespokeweb/crisis-app-2/src/app/(app)&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "16.0.0",
+    "javascript.nodejs.core.library.typings.version": "16.0.0",
+    "last_opened_file_path": "/Users/niels/bespokeweb/crisis-app-2/src/app/(app)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/(app)" />
@@ -79,6 +112,10 @@
       <workItem from="1706524348102" duration="45025000" />
       <workItem from="1707038601557" duration="3000000" />
       <workItem from="1707210912886" duration="1942000" />
+      <workItem from="1707212912902" duration="689000" />
+      <workItem from="1707213710066" duration="32000" />
+      <workItem from="1707213777691" duration="60000" />
+      <workItem from="1707213849013" duration="23508000" />
     </task>
     <servers />
   </component>

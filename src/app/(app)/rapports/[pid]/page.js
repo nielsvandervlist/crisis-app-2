@@ -6,7 +6,7 @@ import {useGet} from '@/hooks/methods'
 
 const Report = () => {
 
-    const {user} = useAuthContext()
+    const user = useAuthContext();
     const params = useParams()
     const [rapport, setRapport] = useGet(`/api/rapports/${params.pid}`, {
         info: true,

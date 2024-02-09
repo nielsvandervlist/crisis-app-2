@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
-import {update, useGet} from '@/hooks/methods'
+import {
+    update, useGet} from '@/hooks/methods'
 
 function OnlineCrisis({crises, activeCrisis}) {
 

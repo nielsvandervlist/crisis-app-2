@@ -87,7 +87,8 @@ export async function update(url, data, setResponse, setErrors) {
             setResponse(res.data)
         })
         .catch(error => {
-            if (error.response.status !== 422) throw error
+
+            console.log(error)
 
             setErrors(error.response.data.errors)
         })

@@ -1,43 +1,37 @@
-import {useEffect, useState} from 'react'
-import {Fetcher, useApi, useIndex} from 'ra-fetch'
-import useAuth from '@/hooks/auth'
+import {useEffect} from 'react'
+import { useAuthContext } from "@/components/Layouts/AuthContext"
+import { useHandle } from "@/hooks/useHandle"
 
 function Form({requestType, id, company}) {
 
-    const {user} = useAuth({middleware: 'auth'})
+    const user = useAuthContext();
+    const fieldsArray = ['name', 'email', 'company_id']
+    const url = requestType === 'post' ? '/api/participants' : `/api/participants/${id}`
+    const params = {
+      user_id: user?.id,
+    }
 
-    const [name, setName] = useState(company ? company.data.name : '')
-    const [description, setDescription] = useState(company ? company.data.description : '')
-    const [response, setResponse] = useState()
-    const [errors, setErrors] = useState()
+    console.log(user)
+
+    let {
+        formData,
+        setFormData,
+        handleChange,
+        handleSubmit,
+        response,
+        errors
+    } = useHandle(fieldsArray, url, requestType, params)
+
+    let { name, email, company_id } = formData
+
+    useEffect(() => {
+        if (company && company.data) {
+            setFormData({...company.data})
+        }
+    }, [setFormData])
 
     if (!user) {
         return <></>
-    }
-
-    const params = {
-        name: name,
-        description: description,
-        user_id: user.id,
-    }
-
-    if (id) {
-        params.id = id
-    }
-
-    function submit(e) {
-        e.preventDefault()
-        if (requestType === 'store') {
-            Fetcher.api('backend').store('companies', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
-        }
-
-        if (requestType === 'update') {
-            Fetcher.api('backend').update('companies', params)
-                .then(response => setResponse(response))
-                .catch(errors => setErrors(errors))
-        }
     }
 
     return <form className={'card col-span-12 form'}>
@@ -46,9 +40,9 @@ function Form({requestType, id, company}) {
                 <label>Name</label>
                 <input
                     type={'text'}
-                    value={name}
+                    value={formData.name}
                     placeholder={'Name'}
-                    onChange={event => setName(event.target.value)}
+                    onChange={handleChange}
                     id={'name'}
                     name={'name'}
                 />
@@ -57,9 +51,9 @@ function Form({requestType, id, company}) {
                 <label>Description</label>
                 <input
                     type={'text'}
-                    value={description}
+                    value={formData.description}
                     placeholder={'Description'}
-                    onChange={event => setDescription(event.target.value)}
+                    onChange={handleChange}
                     id={'description'}
                     name={'description'}
                 />
@@ -67,8 +61,8 @@ function Form({requestType, id, company}) {
         </fieldset>
         <div className={'flex items-center'}>
             {response && <div className={'btn btn--success'}>Company created</div>}
-            {errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}
-            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => submit(e)}>Submit</button>
+            {/*{errors && <div className={'btn btn--error'}>{errors.errors[0]}</div>}*/}
+            <button className={'btn btn--primary ml-auto mt-4'} onClick={(e) => handleSubmit(e)}>Submit</button>
         </div>
     </form>
 }

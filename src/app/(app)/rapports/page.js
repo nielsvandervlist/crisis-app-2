@@ -6,7 +6,7 @@ import {useGet} from '@/hooks/methods'
 
 const Rapports = () => {
 
-    const {user} = useAuthContext()
+    const user = useAuthContext();
     const [rapports, setRapports] = useGet('/api/rapports', {
         user_id: user?.id,
     })

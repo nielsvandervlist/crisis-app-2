@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
+import { faCross, faXmark } from "@fortawesome/free-solid-svg-icons"
 
 function Popup({message, setMessage}) {
 
@@ -14,7 +15,9 @@ function Popup({message, setMessage}) {
     return <div className={`popup ${message ? 'popup--show' : ''}`}>
         <div className={'popup__header'}>
             <h2>{message ? message.title : ''}</h2>
-            <span className={'ml-auto cursor-pointer'} onClick={() => setMessage(false)}></span>
+            <span className={'ml-auto cursor-pointer'} onClick={() => setMessage(false)}>
+                <FontAwesomeIcon icon={faXmark}/>
+            </span>
         </div>
         <div className={'popup__body'}>
             <p className={'mb-4'}>{message ? message.description : ''}</p>

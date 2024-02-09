@@ -1,7 +1,7 @@
 
 function Twitter() {
     return (
-        <div className="tweet">
+        <div className="tweet social">
             <Avatar />
             <div className="content">
                 <Author /> <Time />

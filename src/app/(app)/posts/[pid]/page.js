@@ -1,7 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
 import PostForm from '@/components/Forms/PostForm'
-import useGetData from '@/hooks/useGetData'
 import {useGet} from '@/hooks/methods'
 
 const Post = () => {

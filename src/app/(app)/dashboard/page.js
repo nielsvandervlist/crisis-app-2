@@ -1,20 +1,30 @@
 'use client'
-
 import {useGet} from '@/hooks/methods'
-import PostForm from '@/components/Forms/PostForm'
-import List from '@/components/Lists/List'
-import useGetData from '@/hooks/useGetData'
+import { useAuthContext } from "@/components/Layouts/AuthContext"
+import DashboardWrapper from "@/components/Dashboard/DashboardWrapper"
 
 export default function Page() {
 
-    const { data, setData, isLoading, isError } = useGet('/api/posts');
+    const user = useAuthContext();
+    const [crises, setCrises, isLoading] = useGet('/api/crises', {
+        user_id: user?.id,
+        status: 1,
+        company: true,
+        timeline: true,
+    })
 
-    if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>Error: {isError.message}</div>;
+    const [documents, setDocuments, loading] = useGet('/api/documents', {
+        user_id: user?.id,
+        crisis_id: 1,
+    })
+
+    if(isLoading || loading){
+        return <div>No active urges</div>
+    }
 
     return (
-        <div className={'col-span-12'}>
-            {/*<List items={items} setItems={setItems} type={'posts'}/>*/}
+        <div className={'col-span-12 grid grid-cols-12 gap-4 relative'}>
+            <DashboardWrapper crises={crises} documents={documents}/>
         </div>
     )
 }

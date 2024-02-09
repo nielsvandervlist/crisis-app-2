@@ -19,3 +19,10 @@
         overflow: hidden;
     }
 }
+
+.social {
+    max-width: 330px;
+    border: 1px solid #ECEDF1;
+    border-radius: 6px;
+    @apply bg-white shadow-gray-100 shadow-md;
+}

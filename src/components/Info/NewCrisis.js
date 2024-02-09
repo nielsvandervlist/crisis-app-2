@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Dropdown from '@/components/Dropdown/Dropdown'
 
 function NewCrisis() {
-    return <Dropdown title={'Create your first crisis'}>
+    return <div className={'col-span-6 bg-white card'}>
         <p className={'mb-4'}>Follow this step-by-step.</p>
         <h3><span className={'btn btn--round mb-4 mr-2'}>1</span> Create a new company</h3>
         <p className={'mb-4'}>Before you can create a crisis, you first have to create a company linked to the crisis.
@@ -22,7 +22,7 @@ function NewCrisis() {
         <p className={'mb-4'}>Timelines are used to show posts that you made on a specific time. When a crisis is active
             and has a timeline the posts show automatically.</p>
         <Link href={'timelines/create'} className={'btn btn--soft mb-8'}>Create a new Timeline</Link>
-    </Dropdown>
+    </div>
 }
 
 export default NewCrisis

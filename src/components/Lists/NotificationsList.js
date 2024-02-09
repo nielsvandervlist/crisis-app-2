@@ -1,12 +1,11 @@
 import * as helpers from '@/helpers'
-import {Fetcher} from 'ra-fetch'
 import Link from 'next/link'
+import { update } from "@/hooks/methods"
 
 function NotificationsList({notifications, user}) {
 
     function submit(id) {
-        Fetcher.api('backend').update('notifications', {
-            id: id,
+        update(`/api/crises/${id}`, {
             read: 1,
         })
     }

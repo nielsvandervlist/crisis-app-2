@@ -5,13 +5,12 @@ import {useEffect, useState} from 'react'
 import Echo from 'laravel-echo'
 import axios from '@/lib/axios'
 import Popup from '@/components/Popup/Popup'
-import useGetData from '@/hooks/useGetData'
+import { useGet } from "@/hooks/methods"
 
 function SidebarExtra({user}) {
 
     const [message, setMessage] = useState()
-
-    const [notifications, setNotifications] = useGetData('/api/notifications', {read: 0})
+    const [notifications, setNotifications] = useGet('/api/notifications', {read: 0})
 
     useEffect(() => {
             const echo = new Echo({
@@ -44,12 +43,20 @@ function SidebarExtra({user}) {
             echo
                 .private('App.Models.User.' + user?.id)
                 .listen('.user.reaction', (data) => {
-                    setNotifications((oldNotifications) => [...oldNotifications, data])
+                    console.log(data)
+                    // setNotifications((oldNotifications) => [...oldNotifications, data])
                 })
             echo
                 .channel('timeline-channel')
                 .listen('.timeline.post', (data) => {
-                    setNotifications((oldNotifications) => [...oldNotifications, data])
+
+                  console.log(data)
+
+                  // setNotifications((oldNotifications) =>
+                  //   oldNotifications && oldNotifications.length > 0
+                  //     ? [...oldNotifications, data]
+                  //     : [data]
+                  // )
                     setMessage(data)
                 })
         }, [])

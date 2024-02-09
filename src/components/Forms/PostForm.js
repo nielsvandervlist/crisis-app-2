@@ -1,14 +1,14 @@
 import { useAuthContext } from '@/components/Layouts/AuthContext';
 import Link from 'next/link'
 import FileUpload from '@/components/FileUpload'
-import useGetData from '@/hooks/useGetData'
 import {useHandle} from '@/hooks/useHandle'
+import { useGet } from "@/hooks/methods"
 
 function PostForm({requestType, id, post}) {
 
     const user = useAuthContext();
 
-    const [postTypes] = useGetData('/api/post_types')
+    const [postTypes] = useGet('/api/post_types')
     const url = requestType === 'post' ? '/api/posts' : `/api/posts/${id}`
     const fieldsArray = ['title', 'description', 'post_type_id', 'online', 'thumbnail']
     const edit = requestType === 'update' ? post.data : null

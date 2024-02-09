@@ -1,14 +1,13 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {useAuth} from '@/hooks/auth'
-import useGetData from '@/hooks/useGetData'
 import Modal from '@/components/Modal/Modal'
-import Button from '@/components/Button'
 import ParticipantForm from '@/components/Participants/ParticipantForm'
+import { useGet } from "@/hooks/methods"
 
 function GetParticipants({company_id, alignRight, info, participant}) {
 
     const {user} = useAuth({middleware: 'auth'})
-    const [participants, setParticipants] = useGetData('/api/participants', {
+    const [participants, setParticipants] = useGet('/api/participants', {
         company_id: company_id,
         user_id: participant ? participant.user_id : user?.id,
     })
