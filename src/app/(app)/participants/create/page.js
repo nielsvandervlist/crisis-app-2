@@ -1,3 +1,4 @@
+'use client'
 import ParticipantForm from '@/components/Participants/ParticipantForm'
 import Link from 'next/link'
 
