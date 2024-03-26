@@ -1,3 +1,5 @@
+'use client'
+
 import {useRouter} from 'next/navigation'
 import {Fetcher} from 'ra-fetch'
 import {useEffect, useState} from 'react'
