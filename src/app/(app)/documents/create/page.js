@@ -1,3 +1,5 @@
+'use client'
+
 import MultipleFileUpload from '@/components/Forms/MultipleFileUpload'
 import {useState} from 'react'
 
